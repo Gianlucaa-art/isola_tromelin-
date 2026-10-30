@@ -1,25 +1,25 @@
-# Isola di Tromelin – mappa della soluzione radio
+# Tromelin Island – radio solution map
 
-Progetto del corso **Sistemas de Comunicação Multimédia** (Università di Aveiro, 2026/27): sistema multimediale per una gara di droni sull'isola di Tromelin.
+Project for the **Sistemas de Comunicação Multimédia** course (University of Aveiro, 2026/27): a multimedia communication system for a drone race on Tromelin Island.
 
-## Mappa interattiva
+## Interactive map
 
-Apri `index.html` nel browser (funziona anche offline), oppure il link GitHub Pages se è attivo.
+Open the GitHub Pages link, or open `index.html` in a browser (it also works offline).
 
-- **Isola**: circuito, checkpoint CP0–CP7, telecamere C1-01…C1-08, collegamenti radio con distanze, centro tecnico, droni simulati.
-- **Centro tecnico**: regia, commentatori, area piloti, palo radio e meteo, Starlink, Iridium, generatore.
-- **Fuori dall'isola**: satellite, cloud, distribuzione al pubblico.
-- **Decisioni**: ogni scelta con dato, motivazione e limite.
+- **Island**: race track, checkpoints CP0–CP7, cameras C1-01…C1-08, radio links with distances, technical hub, simulated drones.
+- **Technical hub**: control room, commentators, pilots area, radio and weather mast, Starlink, Iridium, generator.
+- **Off the island**: satellite, cloud, distribution to the audience.
+- **Decisions**: every choice with its fact, reason and limit.
 
-Il pulsante in alto cambia scenario: **low-cost** (radio IP) e **premium** (trasmettitori video Vislink).
+The button at the top switches scenario: **low-cost** (IP radio) and **premium** (Vislink video transmitters).
 
-## File
+## Files
 
-| File | Contenuto |
+| File | Content |
 | --- | --- |
-| `index.html` | Mappa interattiva |
-| `file/mappa-tromelin-radio-stampa.pdf` | Versione da stampare, A3, una pagina per scenario |
-| `file/mappa-tromelin-radio-lowcost.svg` | Mappa vettoriale modificabile, low-cost |
-| `file/mappa-tromelin-radio-premium.svg` | Mappa vettoriale modificabile, premium |
+| `index.html` | Interactive map |
+| `file/tromelin-radio-map-print.pdf` | Printable version, A3, one page per scenario |
+| `file/tromelin-radio-map-lowcost.svg` | Editable vector map, low-cost |
+| `file/tromelin-radio-map-premium.svg` | Editable vector map, premium |
 
-Planimetria preliminare, non rilievo topografico. Base: mappa CIA World Factbook (1 px = 5 m). Distanze in linea d'aria, ±15%.
+Preliminary plan, not a topographic survey. Base: CIA World Factbook map (1 px = 5 m). Straight-line distances, ±15%.
