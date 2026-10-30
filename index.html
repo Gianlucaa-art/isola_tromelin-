@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -176,14 +176,14 @@ input#q{width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:7
 
 <header class="app">
   <div class="brand">
-    <span class="eb">SCMM · Gara di droni · Isola di Tromelin · v0.3 · 29/10/2026</span>
-    <h1>Mappa della soluzione radio</h1>
+    <span class="eb">SCMM · Drone race · Tromelin Island · v0.4 · 30/10/2026</span>
+    <h1>Radio solution map</h1>
   </div>
-  <nav class="tabs" role="tablist" aria-label="Viste">
-    <button role="tab" id="tab-isola" data-view="isola" aria-selected="true">Isola</button>
-    <button role="tab" id="tab-centro" data-view="centro" aria-selected="false">Centro tecnico</button>
-    <button role="tab" id="tab-esterno" data-view="esterno" aria-selected="false">Fuori dall’isola</button>
-    <button role="tab" id="tab-decisioni" data-view="decisioni" aria-selected="false">Decisioni</button>
+  <nav class="tabs" role="tablist" aria-label="Views">
+    <button role="tab" id="tab-island" data-view="island" aria-selected="true">Island</button>
+    <button role="tab" id="tab-hub" data-view="hub" aria-selected="false">Technical hub</button>
+    <button role="tab" id="tab-remote" data-view="remote" aria-selected="false">Off the island</button>
+    <button role="tab" id="tab-decisions" data-view="decisions" aria-selected="false">Decisions</button>
   </nav>
 </header>
 
@@ -191,53 +191,53 @@ input#q{width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:7
   <div class="stage" id="stage">
     <div class="tools" id="tools">
       <div class="seg" role="group" aria-label="Scenario">
-        <button id="sc-lc" data-sc="lc" aria-pressed="true">Low-cost · radio IP</button>
-        <button id="sc-pr" data-sc="premium" aria-pressed="false">Premium · radio video</button>
+        <button id="sc-lc" data-sc="lc" aria-pressed="true">Low-cost · IP radio</button>
+        <button id="sc-pr" data-sc="premium" aria-pressed="false">Premium · video radio</button>
       </div>
-      <button class="tbtn" id="btn-layers" aria-pressed="false" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2 1.5 5.5 8 9l6.5-3.5z"/><path d="m1.5 8.5 6.5 3.5 6.5-3.5"/></svg>Livelli</button>
-      <button class="tbtn isola-only" id="btn-measure" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2l2 2L4 14z"/><path d="m5 9 1.5 1.5M7 7l1.5 1.5M9 5l1.5 1.5"/></svg>Misura</button>
-      <button class="tbtn isola-only" id="btn-play" aria-pressed="true"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="3" width="3" height="10"/><rect x="9" y="3" width="3" height="10"/></svg><span>Droni in volo</span></button>
+      <button class="tbtn" id="btn-layers" aria-pressed="false" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2 1.5 5.5 8 9l6.5-3.5z"/><path d="m1.5 8.5 6.5 3.5 6.5-3.5"/></svg>Layers</button>
+      <button class="tbtn island-only" id="btn-measure" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2l2 2L4 14z"/><path d="m5 9 1.5 1.5M7 7l1.5 1.5M9 5l1.5 1.5"/></svg>Measure</button>
+      <button class="tbtn island-only" id="btn-play" aria-pressed="true"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="4" y="3" width="3" height="10"/><rect x="9" y="3" width="3" height="10"/></svg><span>Drones flying</span></button>
     </div>
     <div class="layers" id="layers" hidden>
-      <h3>Livelli della mappa</h3>
-      <label><input type="checkbox" id="ly-track" checked> Circuito e checkpoint</label>
-      <label><input type="checkbox" id="ly-cams" checked> Telecamere C1</label>
-      <label><input type="checkbox" id="ly-links" checked> Collegamenti radio</label>
-      <label><input type="checkbox" id="ly-dist" checked> Distanze dei collegamenti</label>
-      <label><input type="checkbox" id="ly-hub" checked> Centro tecnico</label>
-      <label><input type="checkbox" id="ly-group"> Aree disegnate dal gruppo</label>
-      <label><input type="checkbox" id="ly-infra" checked> Infrastruttura esistente</label>
-      <label><input type="checkbox" id="ly-grid" checked> Griglia 250 m</label>
-      <h3 style="margin-top:6px">Droni mostrati (filtro)</h3>
+      <h3>Map layers</h3>
+      <label><input type="checkbox" id="ly-track" checked> Race track and checkpoints</label>
+      <label><input type="checkbox" id="ly-cams" checked> C1 cameras</label>
+      <label><input type="checkbox" id="ly-links" checked> Radio links</label>
+      <label><input type="checkbox" id="ly-dist" checked> Link distances</label>
+      <label><input type="checkbox" id="ly-hub" checked> Technical hub</label>
+      <label><input type="checkbox" id="ly-group"> Areas drawn by the group</label>
+      <label><input type="checkbox" id="ly-infra" checked> Existing infrastructure</label>
+      <label><input type="checkbox" id="ly-grid" checked> 250 m grid</label>
+      <h3 style="margin-top:6px">Drones shown (filter)</h3>
       <label><input type="checkbox" id="dr-1" checked> DR-01</label>
       <label><input type="checkbox" id="dr-2" checked> DR-02</label>
       <label><input type="checkbox" id="dr-3" checked> DR-03</label>
       <label><input type="checkbox" id="dr-4" checked> DR-04</label>
     </div>
-    <svg class="north isola-only" viewBox="0 0 34 44" aria-hidden="true"><path d="M17 3 26 30 17 24 8 30z" fill="var(--ink)"/><text x="17" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="var(--ink)">N</text></svg>
+    <svg class="north island-only" viewBox="0 0 34 44" aria-hidden="true"><path d="M17 3 26 30 17 24 8 30z" fill="var(--ink)"/><text x="17" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="var(--ink)">N</text></svg>
 
-    <div class="view" id="v-isola"><svg id="map" aria-label="Mappa dell’isola di Tromelin con circuito e attrezzature"></svg></div>
-    <div class="view" id="v-centro" hidden><svg id="hubsvg" aria-label="Schema del centro tecnico"></svg></div>
-    <div class="view" id="v-esterno" hidden><svg id="extsvg" aria-label="Collegamenti fuori dall’isola"></svg></div>
-    <div class="decview" id="v-decisioni" hidden><div class="decgrid" id="decgrid"></div></div>
+    <div class="view" id="v-island"><svg id="map" aria-label="Map of Tromelin Island with race track and equipment"></svg></div>
+    <div class="view" id="v-hub" hidden><svg id="hubsvg" aria-label="Technical hub layout"></svg></div>
+    <div class="view" id="v-remote" hidden><svg id="extsvg" aria-label="Links off the island"></svg></div>
+    <div class="decview" id="v-decisions" hidden><div class="decgrid" id="decgrid"></div></div>
 
     <div class="zoom" id="zoom">
-      <button id="z-in" aria-label="Ingrandisci">+</button>
-      <button id="z-out" aria-label="Riduci">−</button>
-      <button id="z-fit" aria-label="Adatta" style="font-size:.8rem">⤢</button>
+      <button id="z-in" aria-label="Zoom in">+</button>
+      <button id="z-out" aria-label="Zoom out">−</button>
+      <button id="z-fit" aria-label="Fit" style="font-size:.8rem">⤢</button>
     </div>
     <div class="hint" id="hint" hidden></div>
     <div class="status" id="status">
       <span class="scalebar"><i id="sb-bar" style="width:80px"></i><span id="sb-txt">200 m</span></span>
       <span class="mono" id="coords">E — · S —</span>
-      <span id="disclaimer">Planimetria preliminare, non rilievo topografico · simboli ingranditi per leggibilità</span>
+      <span id="disclaimer">Preliminary plan, not a topographic survey · symbols enlarged for legibility</span>
     </div>
   </div>
 
   <aside class="inspector" id="inspector" aria-live="polite"></aside>
 </main>
 
-<div class="lb" id="lb" hidden><button id="lb-close">Chiudi</button><figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure></div>
+<div class="lb" id="lb" hidden><button id="lb-close">Close</button><figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure></div>
 
 <script>
 const GEO = {"coast":[[1140.0,1647.5],[1120.0,1647.5],[1100.0,1637.5],[1085.0,1622.5],[1070.0,1617.5],[1050.0,1597.5],[1030.0,1587.5],[1010.0,1567.5],[970.0,1547.5],[927.5,1505.0],[907.5,1475.0],[840.0,1412.5],[835.0,1412.5],[742.5,1320.0],[730.0,1302.5],[725.0,1302.5],[695.0,1272.5],[630.0,1232.5],[582.5,1180.0],[567.5,1170.0],[557.5,1150.0],[542.5,1135.0],[537.5,1120.0],[517.5,1095.0],[487.5,1035.0],[487.5,1025.0],[447.5,980.0],[437.5,955.0],[422.5,940.0],[422.5,930.0],[412.5,920.0],[407.5,900.0],[387.5,880.0],[377.5,855.0],[342.5,810.0],[337.5,795.0],[327.5,785.0],[327.5,775.0],[317.5,765.0],[297.5,725.0],[292.5,705.0],[277.5,690.0],[277.5,670.0],[272.5,665.0],[272.5,515.0],[267.5,510.0],[267.5,485.0],[247.5,435.0],[237.5,425.0],[232.5,410.0],[212.5,395.0],[197.5,365.0],[197.5,325.0],[215.0,302.5],[255.0,287.5],[270.0,287.5],[275.0,292.5],[300.0,297.5],[335.0,337.5],[365.0,337.5],[370.0,342.5],[390.0,342.5],[395.0,347.5],[425.0,347.5],[430.0,352.5],[465.0,357.5],[485.0,367.5],[505.0,367.5],[530.0,377.5],[585.0,387.5],[600.0,397.5],[625.0,402.5],[640.0,412.5],[655.0,412.5],[695.0,432.5],[705.0,432.5],[745.0,467.5],[770.0,477.5],[840.0,527.5],[865.0,537.5],[915.0,577.5],[925.0,577.5],[935.0,587.5],[955.0,592.5],[980.0,617.5],[995.0,622.5],[1025.0,647.5],[1070.0,672.5],[1090.0,692.5],[1135.0,712.5],[1170.0,742.5],[1200.0,757.5],[1215.0,772.5],[1255.0,792.5],[1307.5,835.0],[1327.5,870.0],[1357.5,900.0],[1362.5,915.0],[1397.5,955.0],[1397.5,965.0],[1412.5,985.0],[1422.5,1010.0],[1432.5,1020.0],[1432.5,1030.0],[1447.5,1050.0],[1447.5,1060.0],[1457.5,1075.0],[1457.5,1095.0],[1462.5,1100.0],[1462.5,1115.0],[1472.5,1135.0],[1472.5,1160.0],[1477.5,1165.0],[1472.5,1235.0],[1462.5,1255.0],[1462.5,1275.0],[1447.5,1300.0],[1442.5,1325.0],[1432.5,1340.0],[1427.5,1370.0],[1417.5,1385.0],[1417.5,1395.0],[1407.5,1405.0],[1407.5,1415.0],[1357.5,1490.0],[1352.5,1505.0],[1280.0,1587.5],[1260.0,1592.5],[1225.0,1627.5],[1195.0,1642.5],[1145.0,1642.5],[1140.0,1647.5]],"reef":[[[285.0,175.0],[175.0,125.0],[115.0,130.0],[100.0,150.0],[90.0,220.0],[70.0,275.0],[80.0,290.0]],[[415.0,185.0],[395.0,210.0],[340.0,210.0],[315.0,195.0],[305.0,220.0]],[[1390.0,275.0],[1390.0,245.0],[1375.0,245.0],[1360.0,270.0],[1340.0,260.0],[1330.0,270.0],[1305.0,265.0],[1275.0,275.0],[1255.0,275.0],[1245.0,260.0],[1215.0,245.0],[1195.0,270.0],[1180.0,260.0],[1185.0,230.0]],[[1170.0,345.0],[1195.0,320.0],[1205.0,320.0],[1225.0,350.0],[1260.0,335.0],[1280.0,355.0],[1325.0,365.0],[1350.0,345.0],[1395.0,340.0],[1400.0,370.0]],[[685.0,360.0],[850.0,425.0],[995.0,520.0],[1010.0,520.0],[1140.0,600.0],[1240.0,685.0],[1285.0,710.0],[1445.0,870.0],[1490.0,940.0],[1505.0,1000.0],[1545.0,1075.0],[1555.0,1135.0],[1555.0,1205.0],[1545.0,1230.0],[1550.0,1255.0],[1530.0,1335.0],[1525.0,1410.0],[1445.0,1545.0],[1320.0,1655.0],[1285.0,1655.0],[1215.0,1680.0],[1160.0,1685.0],[1130.0,1700.0],[1105.0,1695.0],[980.0,1610.0],[780.0,1415.0],[685.0,1335.0],[665.0,1305.0],[635.0,1290.0],[590.0,1245.0],[490.0,1100.0],[450.0,1070.0],[365.0,975.0],[290.0,860.0],[170.0,650.0],[145.0,485.0]],[[510.0,1165.0],[485.0,1195.0],[405.0,1190.0],[400.0,1200.0]],[[1395.0,1645.0],[1400.0,1630.0],[1485.0,1630.0],[1505.0,1605.0]]],"air":[[430,600],[1172.5,1435]],"circuit":[[430.1,512.6],[414.3,529.4],[399.3,546.9],[385.1,565.1],[372.0,583.7],[360.5,602.9],[350.5,623.6],[343.0,645.5],[339.0,668.9],[340.0,693.9],[347.7,720.9],[360.7,748.9],[378.1,777.5],[398.7,805.3],[421.8,832.7],[445.8,858.2],[468.5,881.5],[487.6,901.8],[504.6,920.0],[519.6,936.0],[533.1,950.7],[545.4,964.1],[556.8,976.6],[567.6,988.5],[577.9,999.6],[587.1,1009.8],[595.9,1019.6],[604.2,1029.0],[612.3,1037.8],[620.0,1046.1],[626.8,1054.0],[633.7,1061.5],[640.0,1068.8],[646.3,1075.8],[652.5,1082.6],[658.5,1089.3],[664.3,1095.9],[670.2,1102.2],[675.6,1108.6],[681.4,1114.8],[686.7,1121.0],[692.3,1127.0],[697.6,1133.4],[703.0,1139.4],[708.1,1145.3],[713.4,1151.5],[718.8,1157.4],[724.1,1163.7],[729.4,1169.9],[734.7,1176.0],[740.1,1182.1],[745.6,1188.7],[751.3,1195.2],[757.1,1202.0],[763.0,1208.6],[769.0,1215.4],[775.3,1222.7],[781.6,1230.3],[788.3,1237.9],[795.3,1245.7],[802.4,1254.0],[810.0,1262.7],[818.0,1272.3],[826.5,1281.9],[835.4,1291.9],[844.7,1302.6],[854.3,1313.9],[865.1,1326.9],[876.6,1341.1],[889.0,1353.8],[902.5,1369.2],[917.4,1386.5],[934.0,1405.9],[952.5,1427.2],[972.8,1448.8],[994.9,1471.0],[1019.3,1496.3],[1046.1,1521.1],[1074.1,1544.5],[1102.4,1562.9],[1130.4,1576.2],[1157.4,1584.2],[1183.1,1587.1],[1206.9,1584.0],[1227.9,1574.6],[1246.7,1560.3],[1263.5,1543.8],[1278.9,1525.9],[1293.0,1506.5],[1306.1,1486.4],[1318.3,1465.9],[1329.9,1445.4],[1341.1,1425.4],[1352.3,1405.8],[1363.4,1386.6],[1374.4,1367.9],[1385.1,1349.1],[1394.3,1329.8],[1401.6,1309.9],[1407.1,1288.9],[1410.3,1267.3],[1411.2,1245.0],[1409.6,1222.2],[1405.4,1199.2],[1399.6,1176.6],[1392.1,1154.2],[1382.9,1132.4],[1371.6,1111.5],[1358.3,1091.3],[1342.9,1071.8],[1326.5,1053.4],[1309.0,1036.0],[1291.5,1019.9],[1274.2,1005.1],[1258.0,991.3],[1242.6,978.4],[1228.9,966.7],[1216.2,955.9],[1204.1,945.7],[1192.9,936.2],[1182.5,927.0],[1172.2,918.3],[1162.9,910.3],[1153.9,902.5],[1145.1,894.9],[1136.9,887.6],[1128.8,880.6],[1120.8,873.9],[1113.5,867.4],[1106.1,860.9],[1098.5,854.6],[1091.3,848.3],[1084.1,842.3],[1077.1,836.3],[1070.5,830.4],[1063.7,824.7],[1057.0,819.1],[1050.6,813.3],[1044.0,807.5],[1037.7,801.5],[1031.2,795.8],[1024.5,790.0],[1017.7,784.0],[1011.1,777.8],[1004.3,772.0],[997.3,766.2],[990.1,760.3],[983.0,753.8],[975.6,747.2],[967.9,740.6],[960.0,733.9],[951.7,726.7],[943.5,719.3],[934.8,712.0],[925.8,702.7],[916.2,693.7],[906.4,687.7],[896.2,679.1],[885.3,669.6],[873.6,659.7],[861.0,648.4],[847.7,638.8],[833.3,627.2],[817.9,611.3],[800.5,596.0],[781.9,580.0],[761.8,563.4],[740.6,547.4],[717.6,531.1],[693.2,515.4],[667.2,500.2],[640.1,486.6],[612.0,475.0],[583.7,466.2],[556.2,461.0],[530.2,459.8],[506.1,462.9],[484.1,470.5],[464.2,482.3],[446.6,496.8]],"cum":[0.0,23.1,46.1,69.2,91.9,114.3,137.3,160.5,184.2,209.2,237.3,268.2,301.6,336.2,372.1,407.1,439.6,467.5,492.4,514.3,534.3,552.5,569.4,585.5,600.6,614.4,627.5,640.1,652.0,663.4,673.8,684.0,693.6,703.0,712.2,721.2,730.0,738.6,747.0,755.5,763.7,771.9,780.2,788.2,796.0,804.2,812.2,820.4,828.6,836.7,844.8,853.4,862.1,871.0,879.8,888.9,898.6,908.4,918.6,929.0,940.0,951.5,964.0,976.8,990.2,1004.4,1019.2,1036.1,1054.4,1072.1,1092.6,1115.5,1141.0,1169.2,1198.8,1230.2,1265.3,1301.8,1338.3,1372.1,1403.1,1431.2,1457.1,1481.1,1504.1,1527.7,1551.3,1574.9,1598.9,1622.9,1646.7,1670.3,1693.2,1715.8,1738.0,1759.6,1781.3,1802.7,1823.9,1845.6,1867.4,1889.7,1912.6,1936.0,1959.3,1982.9,2006.6,2030.3,2054.5,2079.4,2104.0,2128.7,2152.5,2175.2,2196.5,2216.6,2234.6,2251.3,2267.1,2281.8,2295.7,2309.2,2321.4,2333.4,2345.0,2356.0,2366.7,2377.1,2386.9,2396.7,2406.6,2416.2,2425.5,2434.8,2443.6,2452.5,2461.2,2469.8,2478.6,2487.3,2496.0,2504.8,2513.9,2523.0,2531.9,2541.0,2550.3,2559.9,2569.8,2580.0,2590.3,2601.3,2612.4,2623.7,2636.7,2649.8,2661.3,2674.7,2689.1,2704.5,2721.4,2737.8,2756.3,2778.4,2801.6,2826.1,2852.2,2878.7,2906.9,2935.9,2966.1,2996.4,3026.8,3056.4,3084.4,3110.4,3134.7,3158.0,3181.1,3203.9],"L":3227,"cams":{"C1-01":{"x":444.1,"y":453.6,"label":[433,444],"cp":[464.2,482.3],"lap":3181,"dHub":636},"C1-02":{"x":305.5,"y":699.7,"label":[277,692],"cp":[340.0,693.9],"lap":209,"dHub":616},"C1-03":{"x":561.1,"y":1033.2,"label":[537,1060],"cp":[587.1,1009.8],"lap":614,"dHub":343},"C1-04":{"x":1085.2,"y":1593.4,"label":[1082,1612],"cp":[1102.4,1562.9],"lap":1372,"dHub":709},"C1-05":{"x":1360.4,"y":1462.6,"label":[1385,1468],"cp":[1329.9,1445.4],"lap":1670,"dHub":727},"C1-06":{"x":1433.2,"y":1166.7,"label":[1472,1147],"cp":[1399.6,1176.6],"lap":1959,"dHub":605},"C1-07":{"x":1136.7,"y":841.2,"label":[1158,812],"cp":[1113.5,867.4],"lap":2387,"dHub":264},"C1-08":{"x":654.6,"y":454.8,"label":[666,407],"cp":[640.1,486.6],"lap":2996,"dHub":513}},"hub":[883.1,913.9]};
@@ -249,11 +249,11 @@ const IMG = {"cam_C1-01": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2w
 const NS="http://www.w3.org/2000/svg";
 const $=s=>document.querySelector(s);
 const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
-const fmt=n=>Math.round(n).toLocaleString("it-IT");
-const fmtE=n=>n==null?"—":n.toLocaleString("it-IT")+" €";
+const fmt=n=>Math.round(n).toLocaleString("en-GB");
+const fmtE=n=>n==null?"—":n.toLocaleString("en-GB")+" €";
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-const S={view:"isola",sc:"lc",sel:null,measure:false,mpts:[],playing:!matchMedia("(prefers-reduced-motion: reduce)").matches,
+const S={view:"island",sc:"lc",sel:null,measure:false,mpts:[],playing:!matchMedia("(prefers-reduced-motion: reduce)").matches,
   ly:{track:1,cams:1,links:1,dist:1,hub:1,group:0,infra:1,grid:1},drones:[1,1,1,1]};
 try{const v=localStorage.getItem("tromelin-sc");if(v==="premium"||v==="lc")S.sc=v;}catch(e){}
 
@@ -265,157 +265,157 @@ function at(s){s=((s%L)+L)%L;let lo=0,hi=CUM.length-1;while(lo<hi){const m=(lo+h
 const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
 const AIR=GEO.air, WXE=[427,547];
 const LB=d=>{const km=d/1000,lc=S.sc==="lc",f=lc?5.5:2.3,fspl=20*Math.log10(km)+20*Math.log10(f*1000)+32.44,prx=lc?30+26-fspl:24+3+17-fspl,fr=17.32*Math.sqrt(km/(4*f));return {f,fspl,prx,fr,clear:fr*.6,rain:lc?0.43*km:0.01*km};};
-const dec1=n=>n.toFixed(1).replace(".",",");
+const dec1=n=>n.toFixed(1);
 
-/* ---------- decisioni ---------- */
+/* ---------- decisions ---------- */
 const DEC={
- D01:{t:"Base geografica e scala",dato:"Mappa CIA dell’isola con barra 0–0,4 km (80 px sull’immagine 330×355).",scelta:"Base vettoriale ricalcata dalla mappa CIA, unità in metri: 1 px = 5 m.",perche:"È l’unico riferimento metrico controllabile tra gli allegati.",limite:"La pista risulta ~1.115 m contro 1.200 m ufficiali (−7%): planimetria preliminare, non rilievo.",els:["INF-PISTA"]},
- D02:{t:"Un centro tecnico unico",dato:"Area piloti e Room commentary disegnate a ~720 m l’una dall’altra; regia senza posizione.",scelta:"Regia, commentatori e piloti in un solo recinto al centro dell’isola, 130 m dalla pista, 187 m dal circuito.",perche:"Cavi corti per visori, biometria e audio; telecamera più lontana a ~730 m invece di ~1.100 m.",limite:"Da approvare dal gruppo. Distanze di sicurezza da pista e area di volo da verificare.",els:["HUB","Z-COM","Z-PIL"]},
- D03:{t:"Telecamere con ID univoci",dato:"Otto etichette tutte “C1” nella tavola 2.",scelta:"C1-01…C1-08 numerate dalla partenza nel senso di gara, ~35 m dal tracciato verso la costa.",perche:"Ogni posizione diventa rintracciabile in mappa, diagramma ed Excel.",limite:"Punti di ripresa reali da scegliere sul posto.",els:["C1-01","C1-02","C1-03","C1-04","C1-05","C1-06","C1-07","C1-08"]},
- D04:{t:"Checkpoint virtuali via GPS",dato:"Il corso chiede posizione in tempo reale e filtri; il gruppo non ha definito checkpoint.",scelta:"CP0 partenza/arrivo + CP1…CP7 davanti a ogni telecamera, rilevati dal GPS di bordo (geofence).",perche:"Tempi intermedi e classifica senza hardware aggiuntivo; ogni passaggio è inquadrato da una telecamera.",limite:"Precisione del GPS M10 ±metri: per i tempi ufficiali serve RTK (premium).",els:["CP0","CP1","CP2","CP3","CP4","CP5","CP6","CP7"]},
- D05:{t:"Telecamere collegate via radio (low-cost: radio IP)",dato:"Distanze telecamera–centro tecnico 264–727 m; il cavo di rete in rame arriva a 100 m; il Teradek Spark 4K del budget arriva a ~150 m.",scelta:"Su ogni telecamera una radio IP (RL-01…08) che punta verso una stazione base sul palo MST-01.",perche:"L’isola è piatta (max ~6 m, arbusti 0,5–1 m): con pali di 4–6 m c’è vista diretta. Segnale stimato −48,5 dBm sul tratto più lungo, pioggia −0,3 dB.",limite:"Canali da separare dal video dei droni a 5,8 GHz; potenza ammessa all’aperto e autorizzazioni da verificare.",els:["MST-01","L-C1-05","C1-05"]},
- D06:{t:"Premium: trasmettitori video dedicati",dato:"Il gruppo indica i trasmettitori Vislink come soluzione radio.",scelta:"Su ogni telecamera un trasmettitore video Vislink HCAM (VTX-01…08); 4 ricevitori Quantum (VRX) in regia, 2 flussi ciascuno.",perche:"Latenza di un fotogramma dichiarata, ingresso SDI, bande lontane dai droni (es. 2 GHz).",limite:"Costo: un HCAM usato costa 9.800–11.760 £; bande su licenza; fino a 35 W per trasmettitore.",els:["MST-01","VRX","L-C1-05"]},
- D14:{t:"Perché non fibra e non Starlink su ogni telecamera",dato:"Il gruppo aveva tre ipotesi: Starlink per telecamera, radio, fibra.",scelta:"Si sceglie la radio.",perche:"Fibra: ~22–29 mila $ di solo cavo tattico e 4–5 km da posare in zona di nidificazione, senza vantaggi per lo spettatore. Starlink per telecamera: 3 passaggi via satellite, 9 terminali, più sensibile alla pioggia.",limite:"La fibra tornerebbe migliore per un evento di molti giorni o se la radio all’aperto non fosse autorizzata.",els:["L-C1-05"]},
- D07:{t:"Uscita verso il pubblico: un solo Starlink",dato:"12 sorgenti video sull’isola; un uplink satellitare.",scelta:"Non fa parte della rete radio: è l’uscita obbligatoria dall’isola. La regia monta 1 programma 1080p50 ~8 Mbps e lo invia con SAT-01 (premium: SAT-02 di riserva).",perche:"Il non compresso è 829 Mbps; 12 flussi compressi sarebbero ~100 Mbps.",limite:"Copertura e upload Starlink a Tromelin da verificare.",els:["SAT-01","X-LEO"]},
- D08:{t:"Backup solo dati e mappa 2D",dato:"Iridium GO! exec: 22 kbps in trasmissione.",scelta:"Su Iridium passano solo posizioni, biometria, meteo e testo; il pubblico vede la mappa 2D.",perche:"Con 22 kbps il video arriverebbe a ~0,66 fps (metodo della lezione).",limite:"Nessun video durante il backup.",els:["SAT-BK","X-MAP"]},
- D09:{t:"Droni: tre canali separati",dato:"DJI Goggles 2 senza uscita HDMI; GPS M10 senza trasmettitore proprio.",scelta:"Pilotaggio (radiocomando) e video FPV restano locali; ricevitori FRX con uscita video per la regia; telemetria via radiocomando o LoRa verso TLM-01.",perche:"Il controllo di volo non dipende mai dal satellite.",limite:"Sistema FPV con uscita video da scegliere.",els:["DR-01","FRX","TLM-01"]},
- D10:{t:"Biometria in area piloti",dato:"Un solo braccialetto a budget; i piloti restano seduti.",scelta:"4 sensori Bluetooth → Black Box BB-01 in area piloti → cavo di rete.",perche:"Il Bluetooth copre pochi metri: basta. Il Tracker non serve per B1.",limite:"Accesso ai dati WHOOP in tempo reale da verificare.",els:["BB-01","PIL"]},
- D11:{t:"Stazione meteo propria",dato:"RF meteo richiesto dal corso; la stazione Météo-France esiste ma non è detto che sia accessibile.",scelta:"WX-01 sul palo del centro tecnico.",perche:"Il vento decide se si vola.",limite:"Altezza e posizione dei sensori da affinare.",els:["MST-01","INF-WX"]},
- D12:{t:"Energia autonoma",dato:"Nessuna rete elettrica documentata.",scelta:"Generatore PWR-01 a ~35 m dalle tende + UPS; batteria o pannello a ogni telecamera.",perche:"Starlink 110–150 W, PC, radio e telecamere consumano in continuo.",limite:"Dimensionamento possibile solo con la durata dell’evento.",els:["PWR-01"]},
- D13:{t:"Grafica AR in regia, distribuzione dal cloud",dato:"Il gruppo prevede AR/3D e fallback 2D senza posizione.",scelta:"AR-01 sull’isola, accanto al mixer; cloud per CDN, VOD, API dati, mappa 2D e feed social.",perche:"La grafica va sovrapposta ai video a piena qualità, disponibili solo in regia.",limite:"Workstation ed energia sull’isola.",els:["AR-01","X-SRV"]}
+ D01:{t:"Geographic base and scale",dato:"CIA map of the island with a 0–0.4 km scale bar (80 px on the 330×355 image).",scelta:"Vector base traced from the CIA map, units in metres: 1 px = 5 m.",perche:"It is the only verifiable metric reference among the attachments.",limite:"The airstrip measures ~1,115 m vs the official 1,200 m (−7%): preliminary plan, not a survey.",els:["INF-PISTA"]},
+ D02:{t:"One technical hub",dato:"Pilots area and Room commentary were drawn ~720 m apart; the control room had no position.",scelta:"Control room, commentators and pilots in one compound at the centre of the island, 130 m from the airstrip, 187 m from the track.",perche:"Short cables for goggles, biometrics and audio; farthest camera at ~730 m instead of ~1,100 m.",limite:"To be approved by the group. Safety distances from the airstrip and flight area to be checked.",els:["HUB","Z-COM","Z-PIL"]},
+ D03:{t:"Cameras with unique IDs",dato:"Eight labels all called “C1” on board 2.",scelta:"C1-01…C1-08 numbered from the start in race direction, ~35 m from the track towards the coast.",perche:"Every position can be traced on the map, block diagram and spreadsheet.",limite:"Exact shooting spots to be chosen on site.",els:["C1-01","C1-02","C1-03","C1-04","C1-05","C1-06","C1-07","C1-08"]},
+ D04:{t:"Virtual GPS checkpoints",dato:"The course requires real-time position and filters; the group defined no checkpoints.",scelta:"CP0 start/finish + CP1…CP7 in front of each camera, detected by the on-board GPS (geofence).",perche:"Split times and ranking with no extra hardware; every pass is framed by a camera.",limite:"M10 GPS accuracy is a few metres: official timing needs RTK (premium).",els:["CP0","CP1","CP2","CP3","CP4","CP5","CP6","CP7"]},
+ D05:{t:"Cameras linked by radio (low-cost: IP radio)",dato:"Camera–hub distances 264–727 m; copper Ethernet reaches 100 m; the Teradek Spark 4K in the budget reaches ~150 m.",scelta:"An IP radio on each camera (RL-01…08) pointing at a base station on mast MST-01.",perche:"The island is flat (max ~6 m, shrubs 0.5–1 m): 4–6 m masts give line of sight. Estimated signal −48.5 dBm on the longest link, rain −0.3 dB.",limite:"Channels must be kept apart from the drones’ 5.8 GHz video; outdoor power limits and permits to be checked.",els:["MST-01","L-C1-05","C1-05"]},
+ D06:{t:"Premium: dedicated video transmitters",dato:"The group pointed to Vislink transmitters as the radio solution.",scelta:"A Vislink HCAM video transmitter on each camera (VTX-01…08); 4 Quantum receivers (VRX) in the control room, 2 streams each.",perche:"One-frame latency (manufacturer figure), SDI input, bands away from the drones (e.g. 2 GHz).",limite:"Cost: a used HCAM sells for £9,800–11,760; licensed bands; up to 35 W per transmitter.",els:["MST-01","VRX","L-C1-05"]},
+ D14:{t:"Why not fibre and not Starlink on every camera",dato:"The group had three options: Starlink per camera, radio, fibre.",scelta:"Radio is chosen.",perche:"Fibre: ~$22–29k of tactical cable alone and 4–5 km to lay in a nesting area, with no benefit for viewers. Starlink per camera: 3 satellite hops, 9 terminals, more sensitive to rain.",limite:"Fibre would win for a multi-day event or if outdoor radio were not authorised.",els:["L-C1-05"]},
+ D07:{t:"Exit to the audience: one Starlink",dato:"12 video sources on the island; one satellite uplink.",scelta:"Not part of the radio network: it is the mandatory exit from the island. The control room cuts 1 programme at 1080p50 ~8 Mbps and sends it through SAT-01 (premium: SAT-02 as backup).",perche:"Uncompressed video is 829 Mbps; 12 compressed streams would be ~100 Mbps.",limite:"Starlink coverage and upload at Tromelin to be checked.",els:["SAT-01","X-LEO"]},
+ D08:{t:"Data-only backup and 2D map",dato:"Iridium GO! exec: 22 kbps transmit.",scelta:"Only positions, biometrics, weather and text go over Iridium; viewers see the 2D map.",perche:"At 22 kbps video would drop to ~0.66 fps (method from the lectures).",limite:"No video during the backup.",els:["SAT-BK","X-MAP"]},
+ D09:{t:"Drones: three separate channels",dato:"DJI Goggles 2 have no HDMI output; the M10 GPS has no transmitter of its own.",scelta:"Piloting (remote control) and FPV video stay local; FRX ground receivers with video output feed the control room; telemetry via the remote control link or LoRa to TLM-01.",perche:"Flight control never depends on the satellite.",limite:"An FPV system with video output still has to be chosen.",els:["DR-01","FRX","TLM-01"]},
+ D10:{t:"Biometrics in the pilots area",dato:"Only one wristband in the budget; pilots stay seated.",scelta:"4 Bluetooth sensors → Black Box BB-01 in the pilots area → network cable.",perche:"Bluetooth covers a few metres, which is enough. The Tracker is not needed for B1.",limite:"Real-time access to WHOOP data to be checked.",els:["BB-01","PIL"]},
+ D11:{t:"Own weather station",dato:"The course requires weather data; the Météo-France station exists but may not be accessible.",scelta:"WX-01 on the technical hub mast.",perche:"Wind decides whether drones can fly.",limite:"Sensor height and position to be refined.",els:["MST-01","INF-WX"]},
+ D12:{t:"Independent power",dato:"No power grid documented.",scelta:"Generator PWR-01 ~35 m from the tents + UPS; battery or solar panel at each camera.",perche:"Starlink 110–150 W, PCs, radios and cameras draw power continuously.",limite:"Sizing needs the event duration.",els:["PWR-01"]},
+ D13:{t:"AR graphics in the control room, distribution from the cloud",dato:"The group plans AR/3D and a 2D fallback without a location.",scelta:"AR-01 on the island, next to the mixer; cloud for CDN, VOD, data API, 2D map and social feed.",perche:"Graphics must be overlaid on full-quality video, which only exists in the control room.",limite:"Workstation and power on the island.",els:["AR-01","X-SRV"]}
 };
 
 /* ---------- elementi ---------- */
 const E={}; const add=o=>{E[o.id]=o;return o;};
 const cost=(lc,pr)=>()=>S.sc==="lc"?lc:pr;
-const CAMDESC={"C1-01":"vertice nord-ovest, inquadra partenza e arrivo","C1-02":"lato ovest, primo tratto dopo la partenza","C1-03":"metà del lato sud-ovest, rettilineo lungo","C1-04":"vertice sud, curva a gomito","C1-05":"lato sud-est","C1-06":"vertice est, ingresso nel rettilineo di ritorno","C1-07":"metà del lato nord-est","C1-08":"lato nord, ultima curva prima dell’arrivo"};
+const CAMDESC={"C1-01":"north-west corner, covers start and finish","C1-02":"west side, first stretch after the start","C1-03":"middle of the south-west side, long straight","C1-04":"south corner, hairpin bend","C1-05":"south-east side","C1-06":"east corner, entry to the return straight","C1-07":"middle of the north-east side","C1-08":"north side, last bend before the finish"};
 const camOrder=["C1-01","C1-02","C1-03","C1-04","C1-05","C1-06","C1-07","C1-08"];
 const cpOfCam={"C1-01":"CP0","C1-02":"CP1","C1-03":"CP2","C1-04":"CP3","C1-05":"CP4","C1-06":"CP5","C1-07":"CP6","C1-08":"CP7"};
 camOrder.forEach(id=>{const c=GEO.cams[id];
- add({id,kind:"cam",layer:"cams",x:c.x,y:c.y,name:"Telecamera fissa "+id.slice(3),origin:"gruppo",grp:"Telecamere",
-  img:"cam_"+id,imgCap:"Tavola 2 del gruppo: l’etichetta “C1” cerchiata corrisponde a "+id+".",
-  sum:()=>"Posizione documentata dal gruppo ("+CAMDESC[id]+"), spostata sul bordo del tracciato. Riprende il "+(cpOfCam[id]==="CP0"?"traguardo CP0":"checkpoint "+cpOfCam[id])+".",
-  kv:()=>[["Posizione","E "+fmt(c.x)+" m · S "+fmt(c.y)+" m"],["Sul giro",(cpOfCam[id]==="CP0"?"traguardo, a "+fmt(L-c.lap)+" m dalla linea":fmt(c.lap)+" m dalla partenza")],["Al centro tecnico",fmt(c.dHub)+" m in linea d’aria"],
-   ["Collegamento",S.sc==="lc"?"Radio IP RL-"+id.slice(3)+" → stazione base RL-BS sul palo MST-01":"Trasmettitore video VTX-"+id.slice(3)+" (Vislink HCAM) → ricevitori VRX sul palo MST-01"],
-   ["Segnale stimato",(()=>{const b=LB(c.dHub);return dec1(b.prx)+" dBm a "+dec1(b.f)+" GHz: forte";})()],
-   ["Antenna sul palo",(()=>{const b=LB(c.dHub);return "almeno "+dec1(b.clear+1)+" m sopra arbusti (0,5–1 m) e persone";})()],
-   ["Modello",S.sc==="lc"?"Blackmagic Studio Camera 4K Pro G2 (scelta del gruppo)":"Sony FX6 / RED Komodo-X (scelta del gruppo)"],
-   ["Requisiti minimi",S.sc==="lc"?"1080p50, zoom, uscita IP (SRT/NDI) verso la radio, custodia per esterni, 12 V":"1080p50, zoom, uscita SDI verso il trasmettitore, custodia per esterni, 12 V"],
-   ["Costo",S.sc==="lc"?"1.650 € cad. (gruppo); listino verificato 2.135 $ solo corpo":"7.500 € cad. (gruppo)"],
-   ["Alimentazione",S.sc==="lc"?"Batteria + pannello: telecamera 26–46 W + radio di pochi W":"Batteria + pannello: telecamera + trasmettitore fino a 35 W"]],
-  dec:["D03",S.sc==="lc"?"D05":"D06","D12"],ver:["Obiettivo e custodia per esterni non a budget","A budget c’è 1 telecamera: ne servono 8","Vista libera verso il palo MST-01 (sopralluogo)"],src:"Tavola 2 (isola), possibili_soluzioni_.pdf, budget.pdf p. 2–3"});
+ add({id,kind:"cam",layer:"cams",x:c.x,y:c.y,name:"Fixed camera "+id.slice(3),origin:"gruppo",grp:"Cameras",
+  img:"cam_"+id,imgCap:"Group board 2: the circled “C1” label corresponds to "+id+".",
+  sum:()=>"Position documented by the group ("+CAMDESC[id]+"), moved to the edge of the track. It films "+(cpOfCam[id]==="CP0"?"the CP0 finish line":"checkpoint "+cpOfCam[id])+".",
+  kv:()=>[["Position","E "+fmt(c.x)+" m · S "+fmt(c.y)+" m"],["On the lap",(cpOfCam[id]==="CP0"?"finish line, "+fmt(L-c.lap)+" m before the line":fmt(c.lap)+" m from the start")],["To the technical hub",fmt(c.dHub)+" m straight line"],
+   ["Link",S.sc==="lc"?"IP radio RL-"+id.slice(3)+" → base station RL-BS on mast MST-01":"Video transmitter VTX-"+id.slice(3)+" (Vislink HCAM) → VRX receivers on mast MST-01"],
+   ["Estimated signal",(()=>{const b=LB(c.dHub);return dec1(b.prx)+" dBm at "+dec1(b.f)+" GHz: strong";})()],
+   ["Antenna on the mast",(()=>{const b=LB(c.dHub);return "at least "+dec1(b.clear+1)+" m above shrubs (0.5–1 m) and people";})()],
+   ["Model",S.sc==="lc"?"Blackmagic Studio Camera 4K Pro G2 (group’s choice)":"Sony FX6 / RED Komodo-X (group’s choice)"],
+   ["Minimum requirements",S.sc==="lc"?"1080p50, zoom, IP output (SRT/NDI) to the radio, outdoor housing, 12 V":"1080p50, zoom, SDI output to the transmitter, outdoor housing, 12 V"],
+   ["Cost",S.sc==="lc"?"€1,650 each (group); verified list price $2,135, body only":"€7,500 each (group)"],
+   ["Power",S.sc==="lc"?"Battery + solar panel: camera 26–46 W + radio of a few W":"Battery + solar panel: camera + transmitter up to 35 W"]],
+  dec:["D03",S.sc==="lc"?"D05":"D06","D12"],ver:["Lens and outdoor housing not in the budget","The budget has 1 camera: 8 are needed","Clear line of sight to mast MST-01 (site survey)"],src:"Board 2 (island), possibili_soluzioni_.pdf, budget.pdf pp. 2–3"});
 });
-const cpNames=["Partenza / arrivo","CP1","CP2","CP3","CP4","CP5","CP6","CP7"];
+const cpNames=["Start / finish","CP1","CP2","CP3","CP4","CP5","CP6","CP7"];
 camOrder.forEach((cid,i)=>{const c=GEO.cams[cid];const lap=i===0?0:c.lap;const p=i===0?at(0):{x:c.cp[0],y:c.cp[1]};
- add({id:"CP"+i,kind:"cp",layer:"track",x:p.x,y:p.y,lap,name:i===0?"CP0 · Partenza e arrivo":"Checkpoint CP"+i,origin:i===0?"gruppo":"proposta",grp:"Percorso",
-  img:i===0?"start":null,imgCap:"Tavola 1 del gruppo: segno di partenza “Start”.",
-  sum:()=>i===0?"Linea di partenza e arrivo documentata dal gruppo (segno “Start” nella tavola 1). Il senso di gara segue le frecce: lato sud-ovest, vertice sud, ritorno lungo il lato nord-est.":"Gate virtuale proposto: il GPS di bordo registra il passaggio quando il drone entra in un cerchio di 25 m attorno al punto.",
-  kv:()=>[["Distanza dalla partenza",fmt(lap)+" m ("+(lap/L*100).toFixed(0)+"% del giro)"],["Ripreso da",cid],["Rilevamento",S.sc==="lc"?"GPS M10 (precisione di alcuni metri)":"GPS RTK (precisione centimetrica)"],["Hardware a terra","Nessuno"],["Lunghezza giro",fmt(L)+" m (stima dalla tavola, ±15%)"]],
-  dec:["D04"],ver:i===0?["Lunghezza del giro da confermare"]:["Raggio del gate da tarare sui test"],src:i===0?"Tavola 1 e 2 (isola)":"Proposta"});
+ add({id:"CP"+i,kind:"cp",layer:"track",x:p.x,y:p.y,lap,name:i===0?"CP0 · Start and finish":"Checkpoint CP"+i,origin:i===0?"gruppo":"proposta",grp:"Race track",
+  img:i===0?"start":null,imgCap:"Group board 1: the “Start” mark.",
+  sum:()=>i===0?"Start and finish line documented by the group (“Start” mark on board 1). The race direction follows the arrows: south-west side, south corner, back along the north-east side.":"Proposed virtual gate: the on-board GPS logs the pass when the drone enters a 25 m circle around the point.",
+  kv:()=>[["Distance from the start",fmt(lap)+" m ("+(lap/L*100).toFixed(0)+"% of the lap)"],["Filmed by",cid],["Detection",S.sc==="lc"?"M10 GPS (accuracy of a few metres)":"RTK GPS (centimetre accuracy)"],["Ground hardware","None"],["Lap length",fmt(L)+" m (estimated from the board, ±15%)"]],
+  dec:["D04"],ver:i===0?["Lap length to be confirmed"]:["Gate radius to be tuned in tests"],src:i===0?"Boards 1 and 2 (island)":"Proposal"});
 });
-add({id:"TRACK",kind:"track",layer:"track",name:"Circuito di gara",origin:"gruppo",grp:"Percorso",x:GEO.cams["C1-03"].cp[0],y:GEO.cams["C1-03"].cp[1],img:"board1",imgCap:"Tavola 1 del gruppo: circuito, partenza e quote.",
- sum:()=>"Anello ricalcato dalla tavola 3 del gruppo. Si percorre in senso antiorario sulla mappa: lato sud-ovest verso sud-est, poi ritorno sul lato nord-est.",
- kv:()=>[["Lunghezza","~"+fmt(L)+" m per giro (misura sulla tavola)"],["Checkpoint","8 (CP0–CP7)"],["Quota di volo","da definire (simulazione: 8–15 m)"],["Droni in gara","4"]],
- dec:["D01","D04"],ver:["Il tratto quotato “1000 m” nella tavola 2 misura ~640 m","Lato corto quotato 500 m (tav. 1) e 300 m (tav. 2)","Autorizzazioni di volo vicino alla pista"],src:"Tavole 1–3 (isola), mappa CIA"});
-add({id:"HUB",kind:"hub",layer:"hub",x:HUB[0],y:HUB[1],name:"Centro tecnico",origin:"proposta",grp:"Centro tecnico",img:"board3",imgCap:"Tavola 3 del gruppo: aree piloti e commentatori separate, che il centro tecnico riunisce.",
- sum:()=>"Recinto di circa 90 × 60 m con regia, commentatori, area piloti, palo radio e meteo, terminali satellitari e generatore. Apri la scheda “Centro tecnico” per il dettaglio.",
- kv:()=>[["Posizione","E "+fmt(HUB[0])+" m · S "+fmt(HUB[1])+" m"],["Dalla pista","130 m dall’asse"],["Dal circuito","187 m nel punto più vicino"],["Telecamera più lontana","C1-05, 727 m"],["Somma dei collegamenti","4.413 m in linea d’aria"]],
- dec:["D02","D07","D12","D13"],ver:["Approvazione del gruppo","Distanza di sicurezza dalla pista","Vista libera del cielo per SAT-01"],src:"Proposta (dossier, sez. F)"});
-add({id:"Z-COM",kind:"zone",layer:"group",x:583,y:700,w:360,h:190,rot:38,name:"Room commentary (tavola del gruppo)",origin:"gruppo",grp:"Aree del gruppo",img:"board3",imgCap:"Tavola 3: “Room commentary”.",
- sum:()=>"Area disegnata dal gruppo nella tavola 3. Le dimensioni sono quelle del riquadro disegnato, non di una stanza reale.",kv:()=>[["Centro","E 583 m · S 700 m"],["Dal centro tecnico","~"+fmt(dist([583,700],HUB))+" m"],["Dall’area piloti","~720 m"],["Stato","Sostituita dalla zona COM del centro tecnico, se approvato"]],dec:["D02"],ver:["Decisione del gruppo: mantenere o spostare"],src:"Tavola 3 (isola)"});
-add({id:"Z-PIL",kind:"zone",layer:"group",x:1110,y:1196,w:400,h:210,rot:38,name:"Pilots area (tavola del gruppo)",origin:"gruppo",grp:"Aree del gruppo",img:"board3",imgCap:"Tavola 3: “Pilots area”.",
- sum:()=>"Area piloti disegnata dal gruppo. Riquadro schematico.",kv:()=>[["Centro","E 1.110 m · S 1.196 m"],["Dal centro tecnico","~"+fmt(dist([1110,1196],HUB))+" m"],["Stato","Sostituita dalla zona PIL del centro tecnico, se approvato"]],dec:["D02"],ver:["Decisione del gruppo: mantenere o spostare"],src:"Tavola 3 (isola)"});
-add({id:"INF-PISTA",kind:"infra",layer:"infra",x:(AIR[0][0]+AIR[1][0])/2,y:(AIR[0][1]+AIR[1][1])/2,name:"Pista di atterraggio esistente",origin:"esistente",grp:"Infrastruttura esistente",img:"cia",imgCap:"Mappa CIA World Factbook usata come base.",
- sum:()=>"Pista riportata dalla mappa CIA. Collega l’isola con l’esterno. La sua presenza non dimostra che sia disponibile per l’evento.",
- kv:()=>[["Lunghezza misurata","~"+fmt(dist(AIR[0],AIR[1]))+" m sulla base"],["Lunghezza ufficiale","1.200 m (Wikipedia)"],["Uso nel progetto","Riferimento per la scala; arrivo di persone e materiali (da verificare)"]],
- dec:["D01"],ver:["Disponibilità e regole di volo vicino alla pista"],src:"Mappa CIA; Wikipedia “Tromelin Island”"});
-add({id:"INF-WX",kind:"infra",layer:"infra",x:WXE[0],y:WXE[1],name:"Stazione meteo esistente",origin:"esistente",grp:"Infrastruttura esistente",img:"cia",imgCap:"Mappa CIA: “weather station”.",
- sum:()=>"Stazione meteorologica automatica francese indicata sulla mappa CIA. Il progetto non dipende da lei: usa la propria WX-01.",kv:()=>[["Posizione","E 427 m · S 547 m"],["Dal centro tecnico","~"+fmt(dist(WXE,HUB))+" m"],["Uso nel progetto","Fonte di confronto, se i dati sono accessibili"]],dec:["D11"],ver:["Accesso ai dati Météo-France"],src:"Mappa CIA; Wikipedia"});
+add({id:"TRACK",kind:"track",layer:"track",name:"Race track",origin:"gruppo",grp:"Race track",x:GEO.cams["C1-03"].cp[0],y:GEO.cams["C1-03"].cp[1],img:"board1",imgCap:"Group board 1: track, start and dimensions.",
+ sum:()=>"Loop traced from the group’s board 3. It runs anticlockwise on the map: down the south-west side to the south-east, then back along the north-east side.",
+ kv:()=>[["Length","~"+fmt(L)+" m per lap (measured on the board)"],["Checkpoints","8 (CP0–CP7)"],["Flight altitude","to be defined (simulation: 8–15 m)"],["Drones racing","4"]],
+ dec:["D01","D04"],ver:["The stretch labelled “1000 m” on board 2 measures ~640 m","Short side labelled 500 m (board 1) and 300 m (board 2)","Flight permits near the airstrip"],src:"Boards 1–3 (island), CIA map"});
+add({id:"HUB",kind:"hub",layer:"hub",x:HUB[0],y:HUB[1],name:"Technical hub",origin:"proposta",grp:"Technical hub",img:"board3",imgCap:"Group board 3: separate pilots and commentary areas, which the technical hub brings together.",
+ sum:()=>"A compound of about 90 × 60 m with control room, commentators, pilots area, radio and weather mast, satellite terminals and generator. Open the “Technical hub” tab for details.",
+ kv:()=>[["Position","E "+fmt(HUB[0])+" m · S "+fmt(HUB[1])+" m"],["From the airstrip","130 m from its centre line"],["From the track","187 m at the closest point"],["Farthest camera","C1-05, 727 m"],["Sum of all links","4,413 m straight line"]],
+ dec:["D02","D07","D12","D13"],ver:["Group approval","Safety distance from the airstrip","Clear view of the sky for SAT-01"],src:"Proposal (dossier, section F)"});
+add({id:"Z-COM",kind:"zone",layer:"group",x:583,y:700,w:360,h:190,rot:38,name:"Room commentary (group board)",origin:"gruppo",grp:"Group areas",img:"board3",imgCap:"Board 3: “Room commentary”.",
+ sum:()=>"Area drawn by the group on board 3. Its size is that of the drawn box, not of a real room.",kv:()=>[["Centre","E 583 m · S 700 m"],["From the technical hub","~"+fmt(dist([583,700],HUB))+" m"],["From the pilots area","~720 m"],["Status","Replaced by the hub’s COM zone, if approved"]],dec:["D02"],ver:["Group decision: keep or move"],src:"Board 3 (island)"});
+add({id:"Z-PIL",kind:"zone",layer:"group",x:1110,y:1196,w:400,h:210,rot:38,name:"Pilots area (group board)",origin:"gruppo",grp:"Group areas",img:"board3",imgCap:"Board 3: “Pilots area”.",
+ sum:()=>"Pilots area drawn by the group. Schematic box.",kv:()=>[["Centre","E 1,110 m · S 1,196 m"],["From the technical hub","~"+fmt(dist([1110,1196],HUB))+" m"],["Status","Replaced by the hub’s PIL zone, if approved"]],dec:["D02"],ver:["Group decision: keep or move"],src:"Board 3 (island)"});
+add({id:"INF-PISTA",kind:"infra",layer:"infra",x:(AIR[0][0]+AIR[1][0])/2,y:(AIR[0][1]+AIR[1][1])/2,name:"Existing airstrip",origin:"esistente",grp:"Existing infrastructure",img:"cia",imgCap:"CIA World Factbook map used as the base.",
+ sum:()=>"Airstrip shown on the CIA map. It connects the island with the outside world. Its presence does not prove it is available for the event.",
+ kv:()=>[["Measured length","~"+fmt(dist(AIR[0],AIR[1]))+" m on the base map"],["Official length","1,200 m (Wikipedia)"],["Use in the project","Scale reference; arrival of people and equipment (to be checked)"]],
+ dec:["D01"],ver:["Availability and flight rules near the airstrip"],src:"CIA map; Wikipedia “Tromelin Island”"});
+add({id:"INF-WX",kind:"infra",layer:"infra",x:WXE[0],y:WXE[1],name:"Existing weather station",origin:"esistente",grp:"Existing infrastructure",img:"cia",imgCap:"CIA map: “weather station”.",
+ sum:()=>"French automatic weather station shown on the CIA map. The project does not depend on it: it uses its own WX-01.",kv:()=>[["Position","E 427 m · S 547 m"],["From the technical hub","~"+fmt(dist(WXE,HUB))+" m"],["Use in the project","Comparison source, if the data are accessible"]],dec:["D11"],ver:["Access to Météo-France data"],src:"CIA map; Wikipedia"});
 /* droni */
 const DR=[{v:24.5,ph:0},{v:23.6,ph:-60},{v:25.2,ph:-130},{v:22.8,ph:-210}];
 DR.forEach((d,i)=>{const id="DR-0"+(i+1);
- add({id,kind:"drone",layer:"drones",name:"Drone "+id.slice(3)+" e pilota PIL-0"+(i+1),origin:"sim",grp:"Droni (simulazione)",idx:i,
-  sum:()=>"Posizione e telemetria simulate per mostrare come il pubblico vedrà i dati. Il drone porta D1-0"+(i+1)+" (GPS) e DC1-0"+(i+1)+" (video FPV); il pilota indossa B1-0"+(i+1)+".",
-  kv:()=>[["GPS",S.sc==="lc"?"D1-0"+(i+1)+" · Holybro Micro M10 (45 €)":"D1-0"+(i+1)+" · GNSS RTK (300 €)"],["Video FPV",S.sc==="lc"?"DC1-0"+(i+1)+" · DJI O3 Air Unit (220 €)":"DC1-0"+(i+1)+" · DJI O3 Pro (400 €)"],["Pilotaggio","RC-0"+(i+1)+" ⇄ drone, 2,4 GHz, solo locale"],["Video al pilota","GG-0"+(i+1)+", 5,8 GHz, solo locale"],["Video alla regia","FRX-0"+(i+1)+" con uscita HDMI/SDI"],["Telemetria","→ TLM-01, 5 aggiornamenti/s"],["Biometria","B1-0"+(i+1)+" → BB-01 (Bluetooth)"]],
-  dec:["D09","D10","D04"],ver:["DJI Goggles 2 non ha uscita HDMI","Accesso ai dati del braccialetto"],src:"budget.pdf p. 2–3; Heliguy"});
+ add({id,kind:"drone",layer:"drones",name:"Drone "+id.slice(3)+" and pilot PIL-0"+(i+1),origin:"sim",grp:"Drones (simulation)",idx:i,
+  sum:()=>"Simulated position and telemetry, to show how viewers will see the data. The drone carries D1-0"+(i+1)+" (GPS) and DC1-0"+(i+1)+" (FPV video); the pilot wears B1-0"+(i+1)+".",
+  kv:()=>[["GPS",S.sc==="lc"?"D1-0"+(i+1)+" · Holybro Micro M10 (45 €)":"D1-0"+(i+1)+" · GNSS RTK (300 €)"],["Video FPV",S.sc==="lc"?"DC1-0"+(i+1)+" · DJI O3 Air Unit (220 €)":"DC1-0"+(i+1)+" · DJI O3 Pro (400 €)"],["Piloting","RC-0"+(i+1)+" ⇄ drone, 2.4 GHz, local only"],["Video to the pilot","GG-0"+(i+1)+", 5.8 GHz, local only"],["Video to the control room","FRX-0"+(i+1)+" with HDMI/SDI output"],["Telemetry","→ TLM-01, 5 updates/s"],["Biometrics","B1-0"+(i+1)+" → BB-01 (Bluetooth)"]],
+  dec:["D09","D10","D04"],ver:["DJI Goggles 2 has no HDMI output","Access to wristband data"],src:"budget.pdf pp. 2–3; Heliguy"});
 });
-/* centro tecnico, componenti */
+/* hub tecnico, componenti */
 const HC=[
- ["REG","Regia (tenda)","zone",{x:28,y:18,w:15,h:10},"Tenda chiusa con il rack di regia: rete, mixer, AR, encoder, registrazione, server dati, UPS, ricevitori video e telemetria.",[["Dimensioni indicative","14 × 9 m"],["Contiene",()=>"SW-01, PRD-01, AR-01, ENC-01, REC-01, DAT-01, UPS-01, FRX-01…04, TLM-01"+(S.sc==="premium"?", VRX (4 ricevitori Quantum)":"")]],["D02","D13"],["Climatizzazione e protezione dalla salsedine"]],
- ["COM","Postazione commentatori","zone",{x:28,y:8,w:10,h:6},"Due commentatori con microfoni M1-01/02, cuffie e monitor del programma.",[["Microfoni",()=>S.sc==="lc"?"Røde Wireless PRO (450 €) o microfoni-cuffia cablati":"Sennheiser Digital 6000 (3.500 €)"],["Al mixer","Cavo audio ~8 m"]],["D02"],["Numero di commentatori"]],
- ["PIL","Area piloti","zone",{x:26,y:34,w:26,h:9},"Quattro postazioni PIL-01…04 con radiocomando RC, visore GG e sensore B1. La Black Box BB-01 raccoglie la biometria via Bluetooth.",[["Visori",()=>S.sc==="lc"?"4 × DJI Goggles 2 (650 € cad.; a budget 1)":"4 × DJI Goggles 3 (1.800 € cad.; a budget 1)"],["Alla regia","LAN ~12 m"],["Vista","Verso il lato sud-ovest del circuito"]],["D09","D10"],["4 visori e 4 braccialetti: a budget 1"]],
- ["MST-01","Palo radio e meteo","dev",{x:16,y:28},"Palo di circa 9 m: riceve gli 8 segnali radio delle telecamere. Porta anche le antenne dei ricevitori dei droni (FRX), della telemetria (TLM-01) e la stazione meteo WX-01.",[["Ricezione telecamere",()=>S.sc==="lc"?"Stazione base RL-BS (es. Ubiquiti LTU Rocket, 441 $), ~600 Mbps per 8 radio":"4 ricevitori Vislink Quantum (VRX), 2 flussi ciascuno; prezzo da chiedere"],["Riserva",()=>S.sc==="lc"?"Nessuna nel low-cost":"Ricevitori ridondanti"],["Meteo","WX-01: vento, temperatura, umidità, pioggia"],["Al rack","LAN/PoE ~15 m"]],["D05","D06","D11"],["Canali e potenza ammessi all’aperto","Altezza esatta dopo il sopralluogo"]],
- ["SAT-01","Starlink principale","dev",{x:60,y:12},"Terminale Starlink Flat High Performance: unico uplink per il programma e i dati.",[["Hardware",()=>S.sc==="lc"?"2.850 € (gruppo)":"4.500 € con piano Enterprise Priority (gruppo)"],["Abbonamento","Non a budget"],["Consumo","110–150 W medi, IP56, campo visivo 140°"],["Uplink richiesto","≥15–20 Mbps stabili"],["Al rack","Ethernet ~22 m"]],["D07"],["Copertura e piano a Tromelin","Upload reale"]],
- ["SAT-02","Starlink di riserva (premium)","dev",{x:68,y:12},"Secondo terminale Starlink: se il primo si guasta, il video continua.",[["Scenario","Solo premium"],["Costo","Da aggiungere al premium"]],["D07"],["Costo del secondo piano dati"],"premium"],
- ["SAT-BK","Iridium di riserva","dev",{x:60,y:28},"Iridium GO! exec: porta solo dati quando Starlink non è disponibile.",[["Hardware",()=>S.sc==="lc"?"Iridium GO! exec, 1.600 € (gruppo)":"Cobham/Kymeta BGAN, 5.200 € (gruppo)"],["Capacità","22 kbps trasmissione / 88 kbps ricezione (GO! exec)"],["Trasporta","Posizioni, biometria, meteo, testo"]],["D08"],["Piano dati Iridium non a budget"]],
- ["PWR-01","Generatore e serbatoio","dev",{x:80,y:48},"Generatore a circa 35 m dalle tende, sottovento, con cavo verso l’UPS della regia.",[["Carico stimato","Starlink, PC, AR, radio, luci: da calcolare"],["Cavo","~45 m"],["Costo","Non a budget"]],["D12"],["Durata dell’evento"]],
+ ["REG","Control room (tent)","zone",{x:28,y:18,w:15,h:10},"Closed tent with the control-room rack: network, mixer, AR, encoder, recording, data server, UPS, video and telemetry receivers.",[["Approximate size","14 × 9 m"],["Contains",()=>"SW-01, PRD-01, AR-01, ENC-01, REC-01, DAT-01, UPS-01, FRX-01…04, TLM-01"+(S.sc==="premium"?", VRX (4 Quantum receivers)":"")]],["D02","D13"],["Air conditioning and protection from salt air"]],
+ ["COM","Commentary position","zone",{x:28,y:8,w:10,h:6},"Two commentators with microphones M1-01/02, headphones and a programme monitor.",[["Microphones",()=>S.sc==="lc"?"Røde Wireless PRO (€450) or wired headset mics":"Sennheiser Digital 6000 (€3,500)"],["To the mixer","Audio cable ~8 m"]],["D02"],["Number of commentators"]],
+ ["PIL","Pilots area","zone",{x:26,y:34,w:26,h:9},"Four positions PIL-01…04 with remote control RC, goggles GG and sensor B1. Black Box BB-01 collects the biometrics via Bluetooth.",[["Goggles",()=>S.sc==="lc"?"4 × DJI Goggles 2 (€650 each; 1 in the budget)":"4 × DJI Goggles 3 (€1,800 each; 1 in the budget)"],["To the control room","LAN ~12 m"],["View","Towards the south-west side of the track"]],["D09","D10"],["4 goggles and 4 wristbands: 1 in the budget"]],
+ ["MST-01","Radio and weather mast","dev",{x:16,y:28},"A mast of about 9 m: it receives the 8 radio signals from the cameras. It also carries the antennas of the drone receivers (FRX), the telemetry gateway (TLM-01) and the weather station WX-01.",[["Camera reception",()=>S.sc==="lc"?"Base station RL-BS (e.g. Ubiquiti LTU Rocket, $441), ~600 Mbps for 8 radios":"4 Vislink Quantum receivers (VRX), 2 streams each; price on request"],["Backup",()=>S.sc==="lc"?"None in the low-cost option":"Redundant receivers"],["Weather","WX-01: wind, temperature, humidity, rain"],["To the rack","LAN/PoE ~15 m"]],["D05","D06","D11"],["Channels and power allowed outdoors","Exact height after the site survey"]],
+ ["SAT-01","Main Starlink","dev",{x:60,y:12},"Starlink Flat High Performance terminal: the only uplink for the programme and the data.",[["Hardware",()=>S.sc==="lc"?"€2,850 (group)":"€4,500 with Enterprise Priority plan (group)"],["Subscription","Not in the budget"],["Power draw","110–150 W average, IP56, 140° field of view"],["Required uplink","≥15–20 Mbps stable"],["To the rack","Ethernet ~22 m"]],["D07"],["Coverage and plan at Tromelin","Real upload speed"]],
+ ["SAT-02","Backup Starlink (premium)","dev",{x:68,y:12},"Second Starlink terminal: if the first one fails, the video keeps going.",[["Scenario","Premium only"],["Cost","To be added to the premium budget"]],["D07"],["Cost of the second data plan"],"premium"],
+ ["SAT-BK","Iridium backup","dev",{x:60,y:28},"Iridium GO! exec: carries data only when Starlink is unavailable.",[["Hardware",()=>S.sc==="lc"?"Iridium GO! exec, €1,600 (group)":"Cobham/Kymeta BGAN, €5,200 (group)"],["Capacity","22 kbps transmit / 88 kbps receive (GO! exec)"],["Carries","Positions, biometrics, weather, text"]],["D08"],["Iridium data plan not in the budget"]],
+ ["PWR-01","Generator and fuel tank","dev",{x:80,y:48},"Generator about 35 m from the tents, downwind, with a cable to the control room UPS.",[["Estimated load","Starlink, PCs, AR, radios, lights: to be calculated"],["Cable","~45 m"],["Cost","Not in the budget"]],["D12"],["Event duration"]],
 ];
 const RACK=[
- ["SW-01","Switch di rete",()=>S.sc==="lc"?"Gigabit; incluso forse nel cablaggio da 350 €":"Switch gestito Cisco Catalyst"],
- ["VRX","Ricevitori video VRX (premium)",()=>S.sc==="lc"?"Non usati nel low-cost: riceve la stazione base RL-BS":"4 × Vislink Quantum: 2 flussi HD ciascuno, uscita SDI verso il mixer"],
- ["PRD-01","Mixer video software",()=>S.sc==="lc"?"vMix HD (340 €) su PC; ≥12 ingressi":"Blackmagic ATEM Constellation 8K (4.800 €)"],
- ["AR-01","Workstation AR / 3D",()=>S.sc==="lc"?"Lenovo ThinkStation P620 + Unreal Engine 5 (3.800 €)":"HP Z8 G5 + 2 RTX 6000 Ada + Disguise VX4 (18.500 €)"],
- ["ENC-01","Encoder del programma",()=>S.sc==="lc"?"Kiloview E3: 1 HDMI + 1 3G-SDI, SRT (890 €)":"Haivision Makito X4 (8.500 €)"],
- ["REC-01","Registrazione",()=>"≥1 TB: 12 sorgenti a 10 Mbps per 2 h = 108 GB"],
- ["DAT-01","Server dati locale",()=>"Raccoglie telemetria, biometria e meteo e li invia al cloud via Starlink o Iridium"],
- ["UPS-01","Gruppo di continuità",()=>"Copre i cambi del generatore"],
- ["FRX","Ricevitori video droni FRX-01…04",()=>"Uscita HDMI/SDI 1080p verso il mixer: non a budget"],
- ["TLM-01","Gateway telemetria (Tracker)",()=>S.sc==="lc"?"ESP32 LoRa / ricevitore ExpressLRS (90 €)":"RF Venue / Wisycom (1.200 €)"],
- ["BB-01","Black Box biometria",()=>S.sc==="lc"?"Raspberry Pi 5 + batteria (130 €), in area piloti":"Nvidia Jetson Orin Nano (950 €), in area piloti"]
+ ["SW-01","Network switch",()=>S.sc==="lc"?"Gigabit; possibly included in the €350 cabling":"Cisco Catalyst managed switch"],
+ ["VRX","VRX video receivers (premium)",()=>S.sc==="lc"?"Not used in the low-cost option: the RL-BS base station receives":"4 × Vislink Quantum: 2 HD streams each, SDI output to the mixer"],
+ ["PRD-01","Software video mixer",()=>S.sc==="lc"?"vMix HD (€340) on a PC; ≥12 inputs":"Blackmagic ATEM Constellation 8K (€4,800)"],
+ ["AR-01","AR / 3D workstation",()=>S.sc==="lc"?"Lenovo ThinkStation P620 + Unreal Engine 5 (€3,800)":"HP Z8 G5 + 2 RTX 6000 Ada + Disguise VX4 (€18,500)"],
+ ["ENC-01","Programme encoder",()=>S.sc==="lc"?"Kiloview E3: 1 HDMI + 1 3G-SDI, SRT (€890)":"Haivision Makito X4 (€8,500)"],
+ ["REC-01","Recording",()=>"≥1 TB: 12 sources at 10 Mbps for 2 h = 108 GB"],
+ ["DAT-01","Local data server",()=>"Collects telemetry, biometrics and weather and sends them to the cloud via Starlink or Iridium"],
+ ["UPS-01","Uninterruptible power supply",()=>"Covers generator switchovers"],
+ ["FRX","Drone video receivers FRX-01…04",()=>"HDMI/SDI 1080p output to the mixer: not in the budget"],
+ ["TLM-01","Telemetry gateway (Tracker)",()=>S.sc==="lc"?"ESP32 LoRa / ExpressLRS receiver (€90)":"RF Venue / Wisycom (€1,200)"],
+ ["BB-01","Biometrics Black Box",()=>S.sc==="lc"?"Raspberry Pi 5 + battery (€130), in the pilots area":"Nvidia Jetson Orin Nano (€950), in the pilots area"]
 ];
-HC.forEach(([id,name,k,g,sum,kv,dec,ver,sc])=>add({id,kind:"hc",hk:k,g,name,origin:"proposta",grp:"Centro tecnico",sc:sc||"both",sum:()=>sum,kv:()=>kv.map(([a,b])=>[a,typeof b==="function"?b():b]),dec,ver,src:"Proposta; budget.pdf; datasheet",img:id==="PIL"?"board3":null,imgCap:"Tavola 3: area piloti nel disegno del gruppo."}));
-RACK.forEach(([id,name,f])=>add({id,kind:"rack",name,origin:"proposta",grp:"Centro tecnico",sum:()=>name+" nel rack della regia"+(id==="BB-01"?" (fisicamente in area piloti).":"."),kv:()=>[["Modello o requisito",f()]],dec:id==="AR-01"?["D13"]:id==="FRX"||id==="TLM-01"?["D09"]:id==="BB-01"?["D10"]:["D07"],ver:[],src:"budget.pdf p. 2–3; proposta",img:id==="PRD-01"||id==="ENC-01"?"diagrammi":null,imgCap:"Diagrammi del gruppo (Sist._Mult..pdf): Encoder, Remote control, Fallback 2D."}));
+HC.forEach(([id,name,k,g,sum,kv,dec,ver,sc])=>add({id,kind:"hc",hk:k,g,name,origin:"proposta",grp:"Technical hub",sc:sc||"both",sum:()=>sum,kv:()=>kv.map(([a,b])=>[a,typeof b==="function"?b():b]),dec,ver,src:"Proposal; budget.pdf; datasheets",img:id==="PIL"?"board3":null,imgCap:"Board 3: the pilots area as drawn by the group."}));
+RACK.forEach(([id,name,f])=>add({id,kind:"rack",name,origin:"proposta",grp:"Technical hub",sum:()=>name+" in the control-room rack"+(id==="BB-01"?" (physically in the pilots area).":"."),kv:()=>[["Model or requirement",f()]],dec:id==="AR-01"?["D13"]:id==="FRX"||id==="TLM-01"?["D09"]:id==="BB-01"?["D10"]:["D07"],ver:[],src:"budget.pdf pp. 2–3; proposal",img:id==="PRD-01"||id==="ENC-01"?"diagrammi":null,imgCap:"Group diagrams (Sist._Mult..pdf): Encoder, Remote control, Fallback 2D."}));
 /* remoto */
 const XN=[
- ["X-ISL","Isola: SAT-01 / SAT-BK",86,215,"isl","Uscita dall’isola: il programma video e i dati salgono da SAT-01; in emergenza i soli dati da SAT-BK.",[["Programma","1080p50 H.264 ~8 Mbps (ipotesi)"],["Dati","<10 kbps a 5 Hz"]],["D07","D08"]],
- ["X-LEO","Costellazione Starlink (LEO)",300,95,"sat","Satelliti in orbita bassa. Non è un’apparecchiatura del progetto: è il servizio acquistato con il piano dati.",[["Orbita","Bassa (LEO), latenza bassa"],["Servizio","Piano Starlink da scegliere"]],["D07"],["Disponibilità del servizio a Tromelin"]],
- ["X-IRI","Costellazione Iridium",300,335,"sat","Rete satellitare Iridium per il backup dati.",[["Velocità","22 kbps trasmissione"],["Uso","Solo dati"]],["D08"],[]],
- ["X-GWS","Gateway Starlink (Home gateway)",500,95,"gw","La stazione a terra dell’operatore che collega il satellite a Internet. Nei diagrammi del gruppo è il blocco viola “Home gateway”. Non si acquista.",[["Gestito da","Operatore Starlink"]],["D07"],[]],
- ["X-GWI","Gateway Iridium",500,335,"gw","Stazione a terra Iridium.",[["Gestito da","Operatore Iridium"]],["D08"],[]],
- ["X-NET","Internet",690,215,"net","Rete pubblica tra i gateway e il cloud.",[],["D07"],[]],
- ["X-SRV","Server cloud SRV-01",900,215,"srv","Riceve il programma (SRT) e i dati, li distribuisce, archivia e unisce il feed social.",[["Low-cost","Nessuna voce a budget: da aggiungere"],["Premium","AWS GPU + MediaLive, 1.800 € (gruppo)"],["Funzioni","Ingest SRT, CDN, VOD, API dati, mappa 2D, feed social"]],["D13"],["Costo a consumo (ore, GB distribuiti)"]],
- ["X-SOC","Social network",900,370,"soc","I commenti con l’hashtag dell’evento entrano nel feed mostrato nell’app.",[["RF del corso","Feed di commenti RS"]],["D13"],[]],
- ["X-MAP","Mappa 2D e dati",1100,95,"app","Pagina/app con mappa dell’isola, posizioni, classifica ai checkpoint, filtro dei droni, biometria e meteo. Funziona anche col solo backup Iridium.",[["RF coperti","Posizione in tempo reale, filtro, telemetria, meteo"]],["D08","D04"],[]],
- ["X-VID","Video live e VOD",1100,335,"app","Player del programma in diretta, con grafica AR, e archivio in differita.",[["RF coperti","Audio e video in diretta e in differita"]],["D07","D13"],[]],
- ["X-DEV","Pubblico: PC, smartphone, TV",1300,215,"dev","I dispositivi del pubblico. LG 75\" e iPad del budget sono solo per test o esposizione.",[["Test (gruppo)",()=>S.sc==="lc"?"LG 75\" 1.200 € + iPad Air 700 €":"LED wall 16.000 € + iPad Pro/MacBook 3.800 €"]],["D13"],[]]
+ ["X-ISL","Island: SAT-01 / SAT-BK",86,215,"isl","Exit from the island: the video programme and the data go up through SAT-01; in an emergency only data through SAT-BK.",[["Programme","1080p50 H.264 ~8 Mbps (assumption)"],["Data","<10 kbps at 5 Hz"]],["D07","D08"]],
+ ["X-LEO","Starlink constellation (LEO)",300,95,"sat","Low Earth orbit satellites. Not project equipment: it is the service bought with the data plan.",[["Orbit","Low (LEO), low latency"],["Service","Starlink plan to be chosen"]],["D07"],["Service availability at Tromelin"]],
+ ["X-IRI","Iridium constellation",300,335,"sat","Iridium satellite network for the data backup.",[["Speed","22 kbps transmit"],["Use","Data only"]],["D08"],[]],
+ ["X-GWS","Starlink gateway (Home gateway)",500,95,"gw","The operator’s ground station that connects the satellite to the Internet. In the group’s diagrams it is the purple “Home gateway” block. Not something we buy.",[["Run by","Starlink operator"]],["D07"],[]],
+ ["X-GWI","Iridium gateway",500,335,"gw","Iridium ground station.",[["Run by","Iridium operator"]],["D08"],[]],
+ ["X-NET","Internet",690,215,"net","Public network between the gateways and the cloud.",[],["D07"],[]],
+ ["X-SRV","Cloud server SRV-01",900,215,"srv","Receives the programme (SRT) and the data, distributes and archives them and merges the social feed.",[["Low-cost","No budget line: to be added"],["Premium","AWS GPU + MediaLive, €1,800 (group)"],["Functions","SRT ingest, CDN, VOD, data API, 2D map, social feed"]],["D13"],["Pay-per-use cost (hours, GB delivered)"]],
+ ["X-SOC","Social networks",900,370,"soc","Comments with the event hashtag feed into the app.",[["Course requirement","Social media comment feed"]],["D13"],[]],
+ ["X-MAP","2D map and data",1100,95,"app","Web page/app with the island map, positions, checkpoint ranking, drone filter, biometrics and weather. Works even with the Iridium backup alone.",[["Requirements covered","Real-time position, filter, telemetry, weather"]],["D08","D04"],[]],
+ ["X-VID","Live video and VOD",1100,335,"app","Player for the live programme with AR graphics, plus on-demand archive.",[["Requirements covered","Live and on-demand audio and video"]],["D07","D13"],[]],
+ ["X-DEV","Audience: PC, smartphone, TV",1300,215,"dev","The audience’s devices. The LG 75\" and iPad in the budget are only for testing or display.",[["Test (group)",()=>S.sc==="lc"?"LG 75\" €1,200 + iPad Air €700":"LED wall €16,000 + iPad Pro/MacBook €3,800"]],["D13"],[]]
 ];
-XN.forEach(([id,name,x,y,k,sum,kv,dec,ver])=>add({id,kind:"ext",xk:k,x,y,name,origin:k==="sat"||k==="gw"||k==="net"||k==="soc"?"esistente":"proposta",grp:"Fuori dall’isola",sum:()=>sum,kv:()=>kv.map(([a,b])=>[a,typeof b==="function"?b():b]),dec,ver:ver||[],src:"Proposta; Iridium; datasheet Starlink",img:id==="X-GWS"?"diagrammi":null,imgCap:"Diagrammi del gruppo: blocchi Satellite, Home gateway, Cloud, Server."}));
+XN.forEach(([id,name,x,y,k,sum,kv,dec,ver])=>add({id,kind:"ext",xk:k,x,y,name,origin:k==="sat"||k==="gw"||k==="net"||k==="soc"?"esistente":"proposta",grp:"Off the island",sum:()=>sum,kv:()=>kv.map(([a,b])=>[a,typeof b==="function"?b():b]),dec,ver:ver||[],src:"Proposal; Iridium; Starlink datasheet",img:id==="X-GWS"?"diagrammi":null,imgCap:"Group diagrams: Satellite, Home gateway, Cloud, Server blocks."}));
 /* collegamenti telecamere */
-camOrder.forEach(id=>add({id:"L-"+id,kind:"link",name:"Collegamento "+id+" → centro tecnico",origin:"proposta",grp:"Collegamenti",cam:id,
- sum:()=>S.sc==="lc"?"Collegamento radio IP: la radio sulla telecamera manda il video già compresso alla stazione base sul palo MST-01.":"Collegamento radio video: il trasmettitore Vislink sulla telecamera codifica il video e lo manda ai ricevitori VRX sul palo MST-01.",
- kv:()=>{const d=GEO.cams[id].dHub,b=LB(d);return [["Distanza",fmt(d)+" m in linea d’aria"],["Frequenza",S.sc==="lc"?"5,5 GHz (canali 5,47–5,725 GHz, lontani dai droni a 5,8)":"~2,3 GHz (esempio di banda HCAM, su licenza)"],["Perdita nello spazio libero",dec1(b.fspl)+" dB"],["Segnale ricevuto stimato",dec1(b.prx)+" dBm"+(S.sc==="lc"?" (1 W irradiato + antenna 26 dBi)":" (250 mW, antenne 3 + 17 dBi, ipotesi)")],["Spazio libero da ostacoli",dec1(b.clear)+" m attorno alla linea di vista, a metà tratta"],["Pioggia forte (100 mm/h)",S.sc==="lc"?"−"+dec1(b.rain)+" dB, trascurabile":"trascurabile a 2 GHz"],["Video trasportato",S.sc==="lc"?"1080p50 compresso ~8–10 Mbps (SRT/NDI)":"1080p50 HEVC, fino a 31,7 Mbps per trasmettitore"],["Ritardo",S.sc==="lc"?"pochi millisecondi":"un fotogramma (dichiarato da Vislink)"]];},
- dec:["D05","D06","D14"],ver:["Vista diretta reale (sopralluogo)","Potenza e canali ammessi a Tromelin"],img:"soluzioni",imgCap:"possibili_soluzioni_.pdf: le tre ipotesi del gruppo.",src:"possibili_soluzioni_.pdf; proposta"}));
+camOrder.forEach(id=>add({id:"L-"+id,kind:"link",name:"Link "+id+" → technical hub",origin:"proposta",grp:"Links",cam:id,
+ sum:()=>S.sc==="lc"?"IP radio link: the radio on the camera sends the already compressed video to the base station on mast MST-01.":"Video radio link: the Vislink transmitter on the camera encodes the video and sends it to the VRX receivers on mast MST-01.",
+ kv:()=>{const d=GEO.cams[id].dHub,b=LB(d);return [["Distance",fmt(d)+" m straight line"],["Frequency",S.sc==="lc"?"5.5 GHz (channels 5.47–5.725 GHz, away from the drones at 5.8)":"~2.3 GHz (example HCAM band, licensed)"],["Free-space loss",dec1(b.fspl)+" dB"],["Estimated received signal",dec1(b.prx)+" dBm"+(S.sc==="lc"?" (1 W radiated + 26 dBi antenna)":" (250 mW, 3 + 17 dBi antennas, assumption)")],["Clearance from obstacles",dec1(b.clear)+" m around the line of sight, at mid-path"],["Heavy rain (100 mm/h)",S.sc==="lc"?"−"+dec1(b.rain)+" dB, negligible":"negligible at 2 GHz"],["Video carried",S.sc==="lc"?"1080p50 compressed ~8–10 Mbps (SRT/NDI)":"1080p50 HEVC, up to 31.7 Mbps per transmitter"],["Delay",S.sc==="lc"?"a few milliseconds":"one frame (Vislink figure)"]];},
+ dec:["D05","D06","D14"],ver:["Actual line of sight (site survey)","Power and channels allowed at Tromelin"],img:"soluzioni",imgCap:"possibili_soluzioni_.pdf: the group’s three options.",src:"possibili_soluzioni_.pdf; proposal"}));
 
 /* ---------- ispettore ---------- */
 const INS=$("#inspector");
 function chips(o){const c=[`<span class="chip c-id">${esc(o.id)}</span>`];
- if(o.origin==="gruppo")c.push('<span class="chip c-doc">POSIZIONE DEL GRUPPO</span>');
- if(o.origin==="proposta")c.push('<span class="chip c-prop">PROPOSTA</span>');
- if(o.origin==="esistente")c.push('<span class="chip c-inf">'+(o.kind==="ext"?"SERVIZIO ESTERNO":"ESISTENTE, NON VERIFICATO")+'</span>');
- if(o.origin==="sim")c.push('<span class="chip c-sim">SIMULAZIONE</span>');
- if(o.ver&&o.ver.length)c.push('<span class="chip c-ver">DA VERIFICARE</span>');
- if(o.sc==="premium")c.push('<span class="chip c-prop">SOLO PREMIUM</span>');
+ if(o.origin==="gruppo")c.push('<span class="chip c-doc">GROUP POSITION</span>');
+ if(o.origin==="proposta")c.push('<span class="chip c-prop">PROPOSAL</span>');
+ if(o.origin==="esistente")c.push('<span class="chip c-inf">'+(o.kind==="ext"?"THIRD-PARTY SERVICE":"EXISTING, NOT VERIFIED")+'</span>');
+ if(o.origin==="sim")c.push('<span class="chip c-sim">SIMULATION</span>');
+ if(o.ver&&o.ver.length)c.push('<span class="chip c-ver">TO VERIFY</span>');
+ if(o.sc==="premium")c.push('<span class="chip c-prop">PREMIUM ONLY</span>');
  return c.join("");}
-function decHTML(k){const d=DEC[k];return `<div class="dec"><b>${k} · ${esc(d.t)}</b><div class="row"><span>Dato</span><span>${esc(d.dato)}</span></div><div class="row"><span>Scelta</span><span>${esc(d.scelta)}</span></div><div class="row"><span>Perché</span><span>${esc(d.perche)}</span></div><div class="row"><span>Limite</span><span>${esc(d.limite)}</span></div></div>`;}
+function decHTML(k){const d=DEC[k];return `<div class="dec"><b>${k} · ${esc(d.t)}</b><div class="row"><span>Fact</span><span>${esc(d.dato)}</span></div><div class="row"><span>Choice</span><span>${esc(d.scelta)}</span></div><div class="row"><span>Why</span><span>${esc(d.perche)}</span></div><div class="row"><span>Limit</span><span>${esc(d.limite)}</span></div></div>`;}
 function showEl(id){const o=E[id];if(!o)return;S.sel=id;
- let h=`<div class="ins-h"><button class="back" id="ins-back">← Panoramica</button><h2>${esc(o.name)}</h2><div class="chips">${chips(o)}</div></div><div class="ins-b">`;
+ let h=`<div class="ins-h"><button class="back" id="ins-back">← Overview</button><h2>${esc(o.name)}</h2><div class="chips">${chips(o)}</div></div><div class="ins-b">`;
  h+=`<p>${esc(o.sum())}</p>`;
- if(o.kind==="drone")h+=`<div><h3>Telemetria in diretta (simulata)</h3><div class="tele" id="tele"></div></div>`;
- const kv=o.kv();if(kv.length)h+=`<div><h3>Dettagli · scenario ${S.sc==="lc"?"low-cost":"premium"}</h3><dl class="kv">${kv.map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("")}</dl></div>`;
- if(o.img&&IMG[o.img])h+=`<figure><img src="${IMG[o.img]}" alt="${esc(o.imgCap)}" data-cap="${esc(o.imgCap)}"><figcaption>${esc(o.imgCap)} Tocca per ingrandire.</figcaption></figure>`;
- if(o.dec&&o.dec.length)h+=`<div><h3>Decisioni collegate</h3><div class="decs">${o.dec.map(decHTML).join("")}</div></div>`;
- if(o.ver&&o.ver.length)h+=`<div><h3>Da verificare</h3><ul class="chk">${o.ver.map(v=>`<li>${esc(v)}</li>`).join("")}</ul></div>`;
- const acts=[];if(o.kind==="cam"||o.kind==="cp"||o.kind==="infra"||o.kind==="hub"||o.kind==="zone"||o.kind==="drone"||o.kind==="track")acts.push(`<button data-act="center">Centra sulla mappa</button>`);
- if(o.kind==="cam")acts.push(`<button data-act="link">Mostra il collegamento</button>`);
- if(o.kind==="hub")acts.push(`<button data-act="hubview">Apri il centro tecnico</button>`);
+ if(o.kind==="drone")h+=`<div><h3>Live telemetry (simulated)</h3><div class="tele" id="tele"></div></div>`;
+ const kv=o.kv();if(kv.length)h+=`<div><h3>Details · ${S.sc==="lc"?"low-cost":"premium"} scenario</h3><dl class="kv">${kv.map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join("")}</dl></div>`;
+ if(o.img&&IMG[o.img])h+=`<figure><img src="${IMG[o.img]}" alt="${esc(o.imgCap)}" data-cap="${esc(o.imgCap)}"><figcaption>${esc(o.imgCap)} Tap to enlarge.</figcaption></figure>`;
+ if(o.dec&&o.dec.length)h+=`<div><h3>Related decisions</h3><div class="decs">${o.dec.map(decHTML).join("")}</div></div>`;
+ if(o.ver&&o.ver.length)h+=`<div><h3>To verify</h3><ul class="chk">${o.ver.map(v=>`<li>${esc(v)}</li>`).join("")}</ul></div>`;
+ const acts=[];if(o.kind==="cam"||o.kind==="cp"||o.kind==="infra"||o.kind==="hub"||o.kind==="zone"||o.kind==="drone"||o.kind==="track")acts.push(`<button data-act="center">Centre on the map</button>`);
+ if(o.kind==="cam")acts.push(`<button data-act="link">Show the link</button>`);
+ if(o.kind==="hub")acts.push(`<button data-act="hubview">Open the technical hub</button>`);
  if(acts.length)h+=`<div class="actions">${acts.join("")}</div>`;
- h+=`<p class="note">Fonte: ${esc(o.src||"—")}</p></div>`;
+ h+=`<p class="note">Source: ${esc(o.src||"—")}</p></div>`;
  INS.innerHTML=h;INS.scrollTop=0;
  $("#ins-back").onclick=()=>{S.sel=null;showHome();refreshSel();};
  INS.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{const a=b.dataset.act;
-  if(a==="center"){setView("isola");const p=o.kind==="drone"?dronePos(o.idx):{x:o.x,y:o.y};centerOn(p.x,p.y,Math.min(vb.w,700));}
-  if(a==="link"){setView("isola");showEl("L-"+o.id);}
-  if(a==="hubview")setView("centro");});
+  if(a==="center"){setView("island");const p=o.kind==="drone"?dronePos(o.idx):{x:o.x,y:o.y};centerOn(p.x,p.y,Math.min(vb.w,700));}
+  if(a==="link"){setView("island");showEl("L-"+o.id);}
+  if(a==="hubview")setView("hub");});
  bindImgs(INS);refreshSel();if(o.kind==="drone")updTele();}
 function bindImgs(root){root.querySelectorAll("figure img, .thumbs button").forEach(i=>i.onclick=()=>{const src=i.tagName==="IMG"?i.src:i.dataset.src;$("#lb-img").src=src;$("#lb-img").alt=i.dataset.cap||"";$("#lb-cap").textContent=i.dataset.cap||"";$("#lb").hidden=false;$("#lb-close").focus();});}
 $("#lb-close").onclick=()=>$("#lb").hidden=true;$("#lb").onclick=e=>{if(e.target.id==="lb")$("#lb").hidden=true;};
@@ -423,33 +423,33 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!$("#lb").hidden
 
 function showHome(){const maxL=Math.max(...camOrder.map(c=>GEO.cams[c].dHub));
  const groups={};Object.values(E).forEach(o=>{if(o.kind==="link"||o.kind==="rack")return;if(o.sc==="premium"&&S.sc!=="premium")return;(groups[o.grp]=groups[o.grp]||[]).push(o);});
- const order=["Percorso","Telecamere","Centro tecnico","Droni (simulazione)","Infrastruttura esistente","Aree del gruppo","Fuori dall’isola"];
+ const order=["Race track","Cameras","Technical hub","Drones (simulation)","Existing infrastructure","Group areas","Off the island"];
  const sw=o=>o.origin==="sim"?"sim":o.origin==="proposta"?"prop":o.origin==="gruppo"?"doc":o.kind==="ext"?"rem":"inf";
  const meta=o=>o.kind==="cam"?fmt(GEO.cams[o.id].dHub)+" m":o.kind==="cp"?fmt(o.lap)+" m":o.kind==="hc"&&o.hk!=="zone"?"":"";
- let h=`<div class="ins-h"><h2>Panoramica</h2><p class="note" style="margin:0">Tocca un punto sulla mappa o un elemento dell’elenco per vederne dettagli, immagini e decisioni.</p></div><div class="ins-b">`;
- h+=`<div class="stats"><div class="stat"><b>${(L/1000).toFixed(2).replace(".",",")} km</b><span>giro stimato</span></div><div class="stat"><b>8 + 8</b><span>telecamere e checkpoint</span></div><div class="stat"><b>${fmt(maxL)} m</b><span>collegamento più lungo</span></div><div class="stat"><b>${S.sc==="lc"?"Radio IP":"Radio video"}</b><span>${S.sc==="lc"?"low-cost":"premium"}</span></div></div>`;
- h+=`<div><h3>La soluzione in breve</h3><p>Ogni telecamera manda il video <b>via radio</b> al palo del centro tecnico. In regia un mixer monta la diretta, poi <b>un solo Starlink</b> la porta fuori dall’isola: è l’uscita obbligatoria verso il pubblico. Nessun cavo lungo la costa, nessuna antenna satellitare sulle telecamere.</p></div><div><h3>Come leggere la mappa</h3><p class="note">Le linee tratteggiate sono i collegamenti radio, con la distanza in metri. Tocca una telecamera o una linea per vedere segnale, frequenza e altezza dell’antenna. Il pulsante in alto cambia tra low-cost (radio IP) e premium (trasmettitori video Vislink).</p></div>`;
- h+=`<div><h3>Legenda</h3><div class="legend">
-  <div><svg viewBox="0 0 44 16"><circle cx="22" cy="8" r="6" fill="var(--panel)" stroke="var(--doc)" stroke-width="2"/></svg><span>Posizione documentata dal gruppo</span></div>
-  <div><svg viewBox="0 0 44 16"><circle cx="22" cy="8" r="6" fill="var(--panel)" stroke="var(--prop)" stroke-width="2" stroke-dasharray="3 2"/></svg><span>Posizione proposta</span></div>
-  <div><svg viewBox="0 0 44 16"><rect x="16" y="2" width="12" height="12" fill="var(--panel)" stroke="var(--infra)" stroke-width="2"/></svg><span>Infrastruttura esistente, non verificata</span></div>
-  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--track)" stroke-width="4"/></svg><span>Circuito di gara</span></div>
-  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--radio)" stroke-width="2" stroke-dasharray="6 4"/></svg><span>Radio IP (low-cost)</span></div>
-  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--fibra)" stroke-width="2.4" stroke-dasharray="10 4"/></svg><span>Radio video dedicata (premium)</span></div>
-  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--rame)" stroke-width="2"/></svg><span>Cavo in rame (centro tecnico)</span></div>
-  <div><svg viewBox="0 0 44 16"><path d="M22 3l5 5-5 5-5-5z" fill="var(--track)" stroke="var(--ink)" stroke-width="1"/></svg><span>Checkpoint virtuale</span></div>
+ let h=`<div class="ins-h"><h2>Overview</h2><p class="note" style="margin:0">Tap a point on the map or an item in the list to see its details, images and decisions.</p></div><div class="ins-b">`;
+ h+=`<div class="stats"><div class="stat"><b>${(L/1000).toFixed(2)} km</b><span>estimated lap</span></div><div class="stat"><b>8 + 8</b><span>cameras and checkpoints</span></div><div class="stat"><b>${fmt(maxL)} m</b><span>longest link</span></div><div class="stat"><b>${S.sc==="lc"?"IP radio":"Video radio"}</b><span>${S.sc==="lc"?"low-cost":"premium"}</span></div></div>`;
+ h+=`<div><h3>The solution in brief</h3><p>Each camera sends its video <b>by radio</b> to the technical hub mast. In the control room a mixer cuts the live programme, then <b>a single Starlink</b> takes it off the island: it is the mandatory exit to the audience. No cables along the coast, no satellite dishes on the cameras.</p></div><div><h3>How to read the map</h3><p class="note">Dashed lines are the radio links, with their distance in metres. Tap a camera or a line to see signal, frequency and antenna height. The button at the top switches between low-cost (IP radio) and premium (Vislink video transmitters).</p></div>`;
+ h+=`<div><h3>Legend</h3><div class="legend">
+  <div><svg viewBox="0 0 44 16"><circle cx="22" cy="8" r="6" fill="var(--panel)" stroke="var(--doc)" stroke-width="2"/></svg><span>Position documented by the group</span></div>
+  <div><svg viewBox="0 0 44 16"><circle cx="22" cy="8" r="6" fill="var(--panel)" stroke="var(--prop)" stroke-width="2" stroke-dasharray="3 2"/></svg><span>Proposed position</span></div>
+  <div><svg viewBox="0 0 44 16"><rect x="16" y="2" width="12" height="12" fill="var(--panel)" stroke="var(--infra)" stroke-width="2"/></svg><span>Existing infrastructure, not verified</span></div>
+  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--track)" stroke-width="4"/></svg><span>Race track</span></div>
+  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--radio)" stroke-width="2" stroke-dasharray="6 4"/></svg><span>IP radio (low-cost)</span></div>
+  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--fibra)" stroke-width="2.4" stroke-dasharray="10 4"/></svg><span>Dedicated video radio (premium)</span></div>
+  <div><svg viewBox="0 0 44 16"><path d="M2 8h40" stroke="var(--rame)" stroke-width="2"/></svg><span>Copper cable (technical hub)</span></div>
+  <div><svg viewBox="0 0 44 16"><path d="M22 3l5 5-5 5-5-5z" fill="var(--track)" stroke="var(--ink)" stroke-width="1"/></svg><span>Virtual checkpoint</span></div>
  </div></div>`;
- h+=`<div><input id="q" type="search" placeholder="Cerca un ID o un nome (es. C1-05, Starlink)" aria-label="Cerca elementi"></div><div class="list" id="elist">`;
+ h+=`<div><input id="q" type="search" placeholder="Search an ID or a name (e.g. C1-05, Starlink)" aria-label="Search items"></div><div class="list" id="elist">`;
  order.forEach(g=>{if(!groups[g])return;h+=`<div class="grp" data-g="${esc(g)}"><h3>${esc(g)}</h3>`+groups[g].map(o=>`<button class="row-btn" data-id="${esc(o.id)}" data-s="${esc((o.id+" "+o.name).toLowerCase())}"><span class="sw ${sw(o)}"></span><span class="nm"><span class="id">${esc(o.id)}</span> ${esc(o.name)}</span><span class="mt">${meta(o)}</span></button>`).join("")+`</div>`;});
- h+=`</div><div><h3>Tavole originali del gruppo</h3><div class="thumbs">${[["board1","Tavola 1: circuito e quote"],["board2","Tavola 2: posizioni C1 e quote"],["board3","Tavola 3: piloti e commentatori"],["cia","Mappa CIA di base"],["soluzioni","Tre ipotesi di collegamento"],["diagrammi","Tre diagrammi dei flussi"]].map(([k,c])=>`<button data-src="${IMG[k]}" data-cap="${esc(c)}" aria-label="${esc(c)}"><img src="${IMG[k]}" alt="${esc(c)}"></button>`).join("")}</div></div>`;
- h+=`<p class="note">Base: mappa CIA World Factbook, 5 m per pixel. Distanze in linea d’aria, ±15%. Le posizioni del gruppo derivano dalle tavole; tutto il resto è proposta del dossier v0.1.</p></div>`;
+ h+=`</div><div><h3>Group’s original boards</h3><div class="thumbs">${[["board1","Board 1: track and dimensions"],["board2","Board 2: C1 positions and dimensions"],["board3","Board 3: pilots and commentators"],["cia","CIA base map"],["soluzioni","Three link options"],["diagrammi","Three flow diagrams"]].map(([k,c])=>`<button data-src="${IMG[k]}" data-cap="${esc(c)}" aria-label="${esc(c)}"><img src="${IMG[k]}" alt="${esc(c)}"></button>`).join("")}</div></div>`;
+ h+=`<p class="note">Base: CIA World Factbook map, 5 m per pixel. Straight-line distances, ±15%. Group positions come from the boards; everything else is a proposal from dossier v0.1.</p></div>`;
  INS.innerHTML=h;
- INS.querySelectorAll(".row-btn").forEach(b=>b.onclick=()=>{const o=E[b.dataset.id];if(o.kind==="hc")setView("centro");else if(o.kind==="ext")setView("esterno");else if(S.view!=="isola")setView("isola");showEl(o.id);
-  if(S.view==="isola"&&o.x!=null&&o.kind!=="hc"){const p=o.kind==="drone"?dronePos(o.idx):o;centerOn(p.x,p.y,Math.min(vb.w,900));}});
+ INS.querySelectorAll(".row-btn").forEach(b=>b.onclick=()=>{const o=E[b.dataset.id];if(o.kind==="hc")setView("hub");else if(o.kind==="ext")setView("remote");else if(S.view!=="island")setView("island");showEl(o.id);
+  if(S.view==="island"&&o.x!=null&&o.kind!=="hc"){const p=o.kind==="drone"?dronePos(o.idx):o;centerOn(p.x,p.y,Math.min(vb.w,900));}});
  const q=$("#q");q.oninput=()=>{const v=q.value.trim().toLowerCase();INS.querySelectorAll(".row-btn").forEach(b=>b.hidden=v&&!b.dataset.s.includes(v));INS.querySelectorAll(".grp").forEach(g=>g.hidden=![...g.querySelectorAll(".row-btn")].some(b=>!b.hidden));};
  bindImgs(INS);}
 
-/* ---------- mappa isola ---------- */
+/* ---------- mappa island ---------- */
 const svg=$("#map");
 const B={x0:120,y0:180,x1:1560,y1:1700};
 let vb={x:B.x0,y:B.y0,w:B.x1-B.x0,h:B.y1-B.y0};
@@ -460,7 +460,7 @@ el("path",{d:coastD,fill:"var(--lagoon)",stroke:"var(--lagoon)","stroke-width":7
 GEO.reef.forEach(l=>el("path",{d:"M"+l.map(p=>p.join(" ")).join("L"),fill:"none",stroke:"var(--reef)","data-sw":2.2,"data-dash":"2 2.5","stroke-linecap":"round"},gBase));
 el("path",{d:coastD,fill:"var(--land)",stroke:"var(--land-edge)","data-sw":1.4},gBase);
 const tlab=(t,x,y,p,cls="lbl",anchor="middle")=>{const tx=el("text",{x,y,"text-anchor":anchor,class:cls,"data-fs":10.5},p);tx.textContent=t;return tx;};
-[["reef",230,330],["reef",1480,1560],["reef",250,1150],["Oceano Indiano",1350,420]].forEach(([t,x,y])=>{const tx=tlab(t,x,y,gBase);tx.style.fill="var(--reef)";tx.style.fontStyle="italic";});
+[["reef",230,330],["reef",1480,1560],["reef",250,1150],["Indian Ocean",1350,420]].forEach(([t,x,y])=>{const tx=tlab(t,x,y,gBase);tx.style.fill="var(--reef)";tx.style.fontStyle="italic";});
 for(let x=0;x<=1750;x+=250){el("line",{x1:x,y1:0,x2:x,y2:1800,stroke:"var(--grid)","data-sw":.8,"data-dash":"2 4"},gGrid);tlab(x+" m",x+4,B.y0+0,gGrid,"lbl","start").dataset.gx=x;}
 for(let y=0;y<=1800;y+=250){el("line",{x1:0,y1:y,x2:1800,y2:y,stroke:"var(--grid)","data-sw":.8,"data-dash":"2 4"},gGrid);}
 /* infrastruttura */
@@ -469,7 +469,7 @@ el("line",{x1:AIR[0][0],y1:AIR[0][1],x2:AIR[1][0],y2:AIR[1][1],stroke:"var(--pan
 /* aree del gruppo */
 ["Z-COM","Z-PIL"].forEach(id=>{const o=E[id];const g=el("g",{class:"zone","data-id":id,transform:`translate(${o.x} ${o.y}) rotate(${o.rot})`},gGroup);
  el("rect",{x:-o.w/2,y:-o.h/2,width:o.w,height:o.h,rx:25,fill:"var(--doc)","fill-opacity":.08,stroke:"var(--doc)","data-sw":1.6,"data-dash":"6 4"},g);
- const t=tlab(id==="Z-COM"?"Room commentary (gruppo)":"Pilots area (gruppo)",0,4,g);t.style.fill="var(--doc)";});
+ const t=tlab(id==="Z-COM"?"Room commentary (group)":"Pilots area (group)",0,4,g);t.style.fill="var(--doc)";});
 /* circuito */
 const trackD="M"+C.map(p=>p.join(" ")).join("L")+"Z";
 const trk=el("path",{d:trackD,fill:"none",stroke:"var(--track)","data-sw":4,"stroke-linejoin":"round",class:"zone","data-id":"TRACK"},gTrack);
@@ -486,7 +486,7 @@ function drawLinks(){gLinks.innerHTML="";camOrder.forEach(id=>{const c=GEO.cams[
   const mx=c.x+(HUB[0]-c.x)*.55,my=c.y+(HUB[1]-c.y)*.55;const t=el("text",{x:mx,y:my,"text-anchor":"middle",class:"lbl dist","data-fs":10.5},g);t.textContent=fmt(c.dHub)+" m";t.style.fill=S.sc==="lc"?"var(--radio)":"var(--fibra)";linkEls[id]=g;});
  /* richiamo satellite */
  const g=el("g",{class:"lnk","data-id":"X-LEO"},gLinks);el("line",{x1:HUB[0],y1:HUB[1],x2:1530,y2:250,stroke:"var(--accent)","data-sw":1.6,"data-dash":"2 5"},g);el("line",{x1:HUB[0],y1:HUB[1],x2:1530,y2:250,stroke:"transparent","data-sw":14},g);
- const t=el("text",{x:1525,y:236,"text-anchor":"end",class:"lbl","data-fs":10.5},g);t.textContent="SAT-01 → satelliti LEO (fuori scala)";t.style.fill="var(--accent)";
+ const t=el("text",{x:1525,y:236,"text-anchor":"end",class:"lbl","data-fs":10.5},g);t.textContent="SAT-01 → LEO satellites (not to scale)";t.style.fill="var(--accent)";
  applyScale();}
 /* marcatori */
 const ICON={
@@ -506,7 +506,7 @@ function marker(o,parent){const g=el("g",{class:"mk","data-id":o.id,tabindex:0,r
  else{const halo=el(o.kind==="infra"?"rect":"circle",o.kind==="infra"?{x:-10,y:-10,width:20,height:20,rx:2,class:"halo",stroke:col}:{r:o.kind==="hub"?15:12,class:"halo",stroke:col},g);
   if(o.origin==="proposta")halo.setAttribute("stroke-dasharray","4 2.5");
   const ic=el("g",{style:"color:"+(o.kind==="drone"?"var(--drone)":"var(--ink)")},g);ic.innerHTML=ICON[o.kind]||"";
-  const t=el("text",{x:o.kind==="hub"?20:16,y:4},g);t.textContent=o.kind==="hub"?"Centro tecnico":o.kind==="infra"?(o.id==="INF-WX"?"Meteo esistente":"Pista esistente"):o.id;}
+  const t=el("text",{x:o.kind==="hub"?20:16,y:4},g);t.textContent=o.kind==="hub"?"Technical hub":o.kind==="infra"?(o.id==="INF-WX"?"Existing weather stn":"Existing airstrip"):o.id;}
  if(o.kind==="drone"){const p=dronePos(o.idx);g.dataset.ax=p.x;g.dataset.ay=p.y;}else{g.dataset.ax=o.x;g.dataset.ay=o.y;}mks.push(g);return g;}
 camOrder.forEach((id,i)=>{marker(E["CP"+i],gTrack);});
 camOrder.forEach(id=>marker(E[id],gMk));
@@ -517,13 +517,13 @@ const foot=el("rect",{x:HUB[0]-45,y:HUB[1]-30,width:90,height:60,fill:"var(--pro
 gMk.insertBefore(foot,gMk.firstChild);
 /* droni */
 const drEls=DR.map((d,i)=>{const o=E["DR-0"+(i+1)];return marker(o,gDr);});
-function tick(ts){if(lastTs==null)lastTs=ts;const dt=Math.min(.1,(ts-lastTs)/1000);lastTs=ts;if(S.playing&&S.view==="isola"){simT+=dt;batt.forEach((b,i)=>batt[i]=Math.max(18,100-simT*(.11+i*.01)));placeDrones();}requestAnimationFrame(tick);}
+function tick(ts){if(lastTs==null)lastTs=ts;const dt=Math.min(.1,(ts-lastTs)/1000);lastTs=ts;if(S.playing&&S.view==="island"){simT+=dt;batt.forEach((b,i)=>batt[i]=Math.max(18,100-simT*(.11+i*.01)));placeDrones();}requestAnimationFrame(tick);}
 function placeDrones(){const m=mpp();drEls.forEach((g,i)=>{const p=dronePos(i);g.dataset.ax=p.x;g.dataset.ay=p.y;g.setAttribute("transform",`translate(${p.x} ${p.y}) scale(${m})`);g.style.display=S.drones[i]?"":"none";});}
 let teleT=0;function updTele(){const o=E[S.sel];if(!o||o.kind!=="drone")return;const box=$("#tele");if(!box)return;const i=o.idx,p=dronePos(i),d=DR[i];
  const sp=(d.v+Math.cos(simT/7+i)*18/7)*3.6;const pos=((p.s%L)+L)%L;let next=null;for(let k=0;k<8;k++){const cl=E["CP"+k].lap;if(cl>pos){next=["CP"+k,cl-pos];break;}}if(!next)next=["CP0",L-pos];
  const hr=Math.round(112+18*Math.sin(simT/9+i*1.7)+i*4);const alt=(11+3*Math.sin(simT/5+i)).toFixed(1);
  const rank=[0,1,2,3].map(k=>[k,dronePos(k).s]).sort((a,b)=>b[1]-a[1]).findIndex(r=>r[0]===i)+1;
- box.innerHTML=[["Posizione in gara",rank+"º"],["Giro",p.lap],["Velocità",Math.round(sp)+" km/h"],["Quota",alt.replace(".",",")+" m"],["Prossimo",next[0]+" · "+fmt(next[1])+" m"],["Rotta",Math.round(((p.hd*180/Math.PI)+90+360)%360)+"°"],["Battito pilota",hr+" bpm"],["Batteria",Math.round(batt[i])+"%"]].map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join("");}
+ box.innerHTML=[["Race position",["1st","2nd","3rd","4th"][rank-1]],["Lap",p.lap],["Speed",Math.round(sp)+" km/h"],["Altitude",alt+" m"],["Next",next[0]+" · "+fmt(next[1])+" m"],["Heading",Math.round(((p.hd*180/Math.PI)+90+360)%360)+"°"],["Pilot heart rate",hr+" bpm"],["Battery",Math.round(batt[i])+"%"]].map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join("");}
 setInterval(()=>{if(S.playing)updTele();},400);
 
 /* scala e viewport */
@@ -558,9 +558,9 @@ function endPtr(e){const d=drag;ptrs.delete(e.pointerId);if(ptrs.size<2)pinch=nu
  drag=null;}
 svg.addEventListener("pointerup",endPtr);svg.addEventListener("pointercancel",e=>{ptrs.delete(e.pointerId);drag=null;pinch=null;});
 svg.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.dataset.id){e.preventDefault();showEl(e.target.dataset.id);}});
-$("#z-in").onclick=()=>{if(S.view==="isola")zoomAt(1/1.4,vb.x+vb.w/2,vb.y+vb.h/2);};
-$("#z-out").onclick=()=>{if(S.view==="isola")zoomAt(1.4,vb.x+vb.w/2,vb.y+vb.h/2);};
-$("#z-fit").onclick=()=>{if(S.view==="isola")fit();};
+$("#z-in").onclick=()=>{if(S.view==="island")zoomAt(1/1.4,vb.x+vb.w/2,vb.y+vb.h/2);};
+$("#z-out").onclick=()=>{if(S.view==="island")zoomAt(1.4,vb.x+vb.w/2,vb.y+vb.h/2);};
+$("#z-fit").onclick=()=>{if(S.view==="island")fit();};
 function hlLink(cid){Object.entries(linkEls).forEach(([k,g])=>g.classList.toggle("hl",k===cid));}
 function refreshSel(){svg.querySelectorAll(".mk").forEach(g=>g.classList.toggle("sel",g.dataset.id===S.sel));
  [$("#hubsvg"),$("#extsvg")].forEach(s=>s.querySelectorAll("[data-id]").forEach(g=>g.classList.toggle("sel",g.dataset.id===S.sel)));
@@ -568,13 +568,13 @@ function refreshSel(){svg.querySelectorAll(".mk").forEach(g=>g.classList.toggle(
  svg.querySelectorAll(".pulse").forEach(p=>p.remove());const g=svg.querySelector(`.mk[data-id="${S.sel}"]`);if(g)g.insertBefore(el("circle",{class:"pulse",r:16}),g.firstChild);}
 
 /* misura */
-function toggleMeasure(on){S.measure=on;$("#btn-measure").setAttribute("aria-pressed",on);S.mpts=[];gMeas.innerHTML="";const h=$("#hint");h.hidden=!on;h.textContent="Tocca due punti per misurare la distanza · Esc per uscire";}
+function toggleMeasure(on){S.measure=on;$("#btn-measure").setAttribute("aria-pressed",on);S.mpts=[];gMeas.innerHTML="";const h=$("#hint");h.hidden=!on;h.textContent="Tap two points to measure the distance · Esc to exit";}
 $("#btn-measure").onclick=()=>toggleMeasure(!S.measure);
 function measureAdd(p){if(S.mpts.length>=2){S.mpts=[];gMeas.innerHTML="";}S.mpts.push([p.x,p.y]);
  const m=mpp();S.mpts.forEach(q=>el("circle",{cx:q[0],cy:q[1],r:5*m,fill:"var(--sel)"},gMeas));
  if(S.mpts.length===2){const [a,b]=S.mpts;el("line",{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:"var(--sel)","stroke-width":2.5*m,"stroke-dasharray":`${6*m} ${4*m}`},gMeas);
   const t=el("text",{x:(a[0]+b[0])/2,y:(a[1]+b[1])/2-8*m,"text-anchor":"middle","font-size":13*m,"font-family":"JetBrains Mono, monospace","font-weight":700,fill:"var(--sel)",stroke:"var(--panel)","stroke-width":4*m,"paint-order":"stroke"},gMeas);t.textContent=fmt(dist(a,b))+" m";
-  $("#hint").textContent="Distanza: "+fmt(dist(a,b))+" m · tocca di nuovo per una nuova misura";}}
+  $("#hint").textContent="Distance: "+fmt(dist(a,b))+" m · tap again for a new measurement";}}
 
 /* livelli */
 function applyLayers(){gTrack.style.display=S.ly.track?"":"none";gMk.querySelectorAll('.mk[data-id^="C1-"]').forEach(g=>g.style.display=S.ly.cams?"":"none");
@@ -584,7 +584,7 @@ function applyLayers(){gTrack.style.display=S.ly.track?"":"none";gMk.querySelect
 Object.keys(S.ly).forEach(k=>{const c=$("#ly-"+k);c.checked=!!S.ly[k];c.onchange=()=>{S.ly[k]=c.checked?1:0;applyLayers();};});
 [1,2,3,4].forEach(i=>{const c=$("#dr-"+i);c.onchange=()=>{S.drones[i-1]=c.checked?1:0;placeDrones();};});
 $("#btn-layers").onclick=()=>{const l=$("#layers");l.hidden=!l.hidden;$("#btn-layers").setAttribute("aria-pressed",!l.hidden);$("#btn-layers").setAttribute("aria-expanded",!l.hidden);};
-function setPlay(on){S.playing=on;const b=$("#btn-play");b.setAttribute("aria-pressed",on);b.querySelector("svg").innerHTML=on?'<rect x="4" y="3" width="3" height="10"/><rect x="9" y="3" width="3" height="10"/>':'<path d="M4 3l9 5-9 5z"/>';b.querySelector("span").textContent=on?"Droni in volo":"Droni fermi";}
+function setPlay(on){S.playing=on;const b=$("#btn-play");b.setAttribute("aria-pressed",on);b.querySelector("svg").innerHTML=on?'<rect x="4" y="3" width="3" height="10"/><rect x="9" y="3" width="3" height="10"/>':'<path d="M4 3l9 5-9 5z"/>';b.querySelector("span").textContent=on?"Drones flying":"Drones paused";}
 $("#btn-play").onclick=()=>setPlay(!S.playing);
 
 /* scenario */
@@ -593,7 +593,7 @@ function setSc(sc){S.sc=sc;try{localStorage.setItem("tromelin-sc",sc);}catch(e){
  if(S.sel&&E[S.sel]&&!(E[S.sel].sc==="premium"&&sc!=="premium"))showEl(S.sel);else{S.sel=null;showHome();}}
 document.querySelectorAll("[data-sc]").forEach(b=>b.onclick=()=>setSc(b.dataset.sc));
 
-/* ---------- vista centro tecnico ---------- */
+/* ---------- vista hub tecnico ---------- */
 const hs=$("#hubsvg");
 function drawHub(){hs.innerHTML="";hs.setAttribute("viewBox","-6 -8 102 76");hs.setAttribute("preserveAspectRatio","xMidYMid meet");
  el("rect",{x:-200,y:-200,width:500,height:460,fill:"var(--land)"},hs);
@@ -601,18 +601,18 @@ function drawHub(){hs.innerHTML="";hs.setAttribute("viewBox","-6 -8 102 76");hs.
  for(let y=0;y<=60;y+=10)el("line",{x1:0,y1:y,x2:90,y2:y,stroke:"var(--grid)","stroke-width":.08},hs);
  el("rect",{x:0,y:0,width:90,height:60,fill:"none",stroke:"var(--prop)","stroke-width":.3,"stroke-dasharray":"1.2 .8"},hs);
  const T=(t,x,y,o={})=>{const e=el("text",Object.assign({x,y,"font-family":"JetBrains Mono, monospace","font-size":1.9,fill:"var(--ink)","pointer-events":"none"},o),hs);e.textContent=t;return e;};
- T("Recinto del centro tecnico · 90 × 60 m · scala indicativa",0,-2.6,{"font-size":2.1,"font-weight":700});
- T("verso il circuito (lato sud-ovest) ↙",0,65,{fill:"var(--muted)"});T("N ↑",86,-2.6,{"font-weight":700});
+ T("Technical hub compound · 90 × 60 m · approximate scale",0,-2.6,{"font-size":2.1,"font-weight":700});
+ T("towards the track (south-west side) ↙",0,65,{fill:"var(--muted)"});T("N ↑",86,-2.6,{"font-weight":700});
  /* cavi */
  const cab=(a,b,lab,col="var(--rame)",dash)=>{el("line",{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:col,"stroke-width":.45,"stroke-dasharray":dash||"none"},hs);if(lab)T(lab,(a[0]+b[0])/2+.6,(a[1]+b[1])/2-.6,{"font-size":1.55,fill:"var(--muted)"});};
  cab([28,24],[16,28],"");T("LAN/PoE ~15 m",14,32.5,{"font-size":1.55,fill:"var(--muted)"});cab([43,20],[60,12],"Ethernet ~22 m");cab([43,25],[60,28],"Ethernet ~20 m");if(S.sc==="premium")cab([43,19],[68,12]);
- cab([36,28],[36,34],"LAN/HDMI ~12 m");cab([33,14],[33,18],"audio ~8 m");cab([80,48],[40,27],"Energia ~45 m","var(--warn)","1 .6");
+ cab([36,28],[36,34],"LAN/HDMI ~12 m");cab([33,14],[33,18],"audio ~8 m");cab([80,48],[40,27],"Power ~45 m","var(--warn)","1 .6");
  /* frecce radio */
  [[-6,40],[-6,10],[10,-8]].forEach(p=>el("line",{x1:16,y1:28,x2:p[0],y2:p[1],stroke:S.sc==="lc"?"var(--radio)":"var(--fibra)","stroke-width":.4,"stroke-dasharray":S.sc==="lc"?"1.2 .8":"2 .8"},hs));
- T(S.sc==="lc"?"radio IP da C1-01…08":"radio video da C1-01…08",-5,48,{fill:S.sc==="lc"?"var(--radio)":"var(--fibra)","font-size":1.7});
+ T(S.sc==="lc"?"IP radio from C1-01…08":"video radio from C1-01…08",-5,48,{fill:S.sc==="lc"?"var(--radio)":"var(--fibra)","font-size":1.7});
  Object.values(E).filter(o=>o.kind==="hc").forEach(o=>{if(o.sc==="premium"&&S.sc!=="premium")return;const g=el("g",{class:"mk","data-id":o.id,tabindex:0,role:"button","aria-label":o.id+" "+o.name},hs);
   if(o.hk==="zone"){el("rect",{x:o.g.x,y:o.g.y,width:o.g.w,height:o.g.h,rx:.8,fill:"var(--panel)",stroke:"var(--prop)","stroke-width":.35,"stroke-dasharray":"1 .6",class:"halo"},g);
-   const t=el("text",{x:o.g.x+.8,y:o.g.y+2.3,"font-size":1.7,"font-weight":700},g);t.textContent=o.id==="REG"?"REG · Regia":o.id==="COM"?"COM · Commento":"PIL · Area piloti";t.style.stroke="none";}
+   const t=el("text",{x:o.g.x+.8,y:o.g.y+2.3,"font-size":o.id==="PIL"?1.7:1.35,"font-weight":700},g);t.textContent=o.id==="REG"?"REG · Control room":o.id==="COM"?"COM":"PIL · Pilots area";t.style.stroke="none";}
   else{el("circle",{cx:o.g.x,cy:o.g.y,r:2.4,fill:"var(--panel)",stroke:"var(--prop)","stroke-width":.35,"stroke-dasharray":"1 .6",class:"halo"},g);
    el("circle",{cx:o.g.x,cy:o.g.y,r:.9,fill:o.id.startsWith("SAT")?"var(--accent)":o.id==="PWR-01"?"var(--warn)":"var(--ink)"},g);
    const t=el("text",{x:o.g.x+3,y:o.g.y+.7,"font-size":1.8,"font-weight":700},g);t.textContent=o.id;t.style.stroke="none";}});
@@ -628,52 +628,52 @@ function drawHub(){hs.innerHTML="";hs.setAttribute("viewBox","-6 -8 102 76");hs.
 hs.addEventListener("click",e=>{const t=e.target.closest("[data-id]");if(t)showEl(t.dataset.id);});
 hs.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.dataset.id){e.preventDefault();showEl(e.target.dataset.id);}});
 
-/* ---------- vista fuori dall'isola ---------- */
+/* ---------- vista fuori dall'island ---------- */
 const xs=$("#extsvg");
 function drawExt(){xs.innerHTML="";xs.setAttribute("viewBox","0 10 1400 430");xs.setAttribute("preserveAspectRatio","xMidYMid meet");
  el("rect",{x:-1500,y:-1500,width:4400,height:3500,fill:"var(--bg)"},xs);
  el("rect",{x:2,y:115,width:168,height:210,rx:10,fill:"var(--land)",stroke:"var(--land-edge)","stroke-width":1.5},xs);
  const T=(t,x,y,o={})=>{const e=el("text",Object.assign({x,y,"font-family":"JetBrains Mono, monospace","font-size":12,fill:"var(--muted)","text-anchor":"middle","pointer-events":"none"},o),xs);e.textContent=t;return e;};
- T("ISOLA",85,140,{"font-weight":700,fill:"var(--ink)","font-size":14});T("REMOTO · infrastruttura fuori dall’isola",790,32,{"font-weight":700,fill:"var(--ink)","font-size":14});
+ T("ISLAND",85,140,{"font-weight":700,fill:"var(--ink)","font-size":14});T("REMOTE · infrastructure off the island",790,32,{"font-weight":700,fill:"var(--ink)","font-size":14});
  el("line",{x1:180,y1:20,x2:180,y2:420,stroke:"var(--line)","stroke-width":2,"stroke-dasharray":"6 6"},xs);
  const N=id=>E[id];
  const arrow=(a,b,lab,col,dash,w=2.2)=>{const A=N(a),Bn=N(b);const ang=Math.atan2(Bn.y-A.y,Bn.x-A.x);const r=46;const rx=82,ry=36;const f=Math.min(rx/Math.abs(Math.cos(ang)||1e-6),ry/Math.abs(Math.sin(ang)||1e-6));const x1=A.x+Math.cos(ang)*f,y1=A.y+Math.sin(ang)*f,x2=Bn.x-Math.cos(ang)*f,y2=Bn.y-Math.sin(ang)*f;
   el("line",{x1,y1,x2,y2,stroke:col,"stroke-width":w,"stroke-dasharray":dash||"none","marker-end":"url(#ah)"},xs);if(lab)T(lab,(x1+x2)/2,(y1+y2)/2-10,{"font-size":13.5,fill:col,"font-weight":600});};
  const defs=el("defs",{},xs);const mk=el("marker",{id:"ah",viewBox:"0 0 10 10",refX:8,refY:5,markerWidth:7,markerHeight:7,orient:"auto-start-reverse"},defs);el("path",{d:"M0 0 10 5 0 10z",fill:"var(--muted)"},mk);
- arrow("X-ISL","X-LEO","~8 Mbps + dati","var(--accent)","5 4");arrow("X-LEO","X-GWS","","var(--accent)","5 4");arrow("X-GWS","X-NET","","var(--muted)");
- arrow("X-ISL","X-IRI","≤22 kbps solo dati","var(--warn)","5 4");arrow("X-IRI","X-GWI","","var(--warn)","5 4");arrow("X-GWI","X-NET","","var(--muted)");
- arrow("X-NET","X-SRV","SRT + dati","var(--muted)");arrow("X-SOC","X-SRV","commenti","var(--muted)");arrow("X-SRV","X-MAP","API dati","var(--muted)");arrow("X-SRV","X-VID","CDN","var(--muted)");arrow("X-MAP","X-DEV","","var(--muted)");arrow("X-VID","X-DEV","","var(--muted)");
+ arrow("X-ISL","X-LEO","~8 Mbps + data","var(--accent)","5 4");arrow("X-LEO","X-GWS","","var(--accent)","5 4");arrow("X-GWS","X-NET","","var(--muted)");
+ arrow("X-ISL","X-IRI","≤22 kbps data only","var(--warn)","5 4");arrow("X-IRI","X-GWI","","var(--warn)","5 4");arrow("X-GWI","X-NET","","var(--muted)");
+ arrow("X-NET","X-SRV","SRT + data","var(--muted)");arrow("X-SOC","X-SRV","comments","var(--muted)");arrow("X-SRV","X-MAP","data API","var(--muted)");arrow("X-SRV","X-VID","CDN","var(--muted)");arrow("X-MAP","X-DEV","","var(--muted)");arrow("X-VID","X-DEV","","var(--muted)");
  Object.values(E).filter(o=>o.kind==="ext").forEach(o=>{const g=el("g",{class:"mk","data-id":o.id,tabindex:0,role:"button","aria-label":o.name},xs);
   const ex=o.origin==="esistente";el("rect",{x:o.x-78,y:o.y-32,width:156,height:64,rx:o.xk==="sat"||o.xk==="net"?32:9,fill:"var(--panel)",stroke:ex?"var(--infra)":"var(--prop)","stroke-width":2,"stroke-dasharray":ex?"none":"5 3",class:"halo"},g);
   const words=o.name.split(" ");let l1="",l2="";words.forEach(w=>{if((l1+" "+w).trim().length<=17&&!l2)l1=(l1+" "+w).trim();else l2=(l2+" "+w).trim();});
   const t1=el("text",{x:o.x,y:l2?o.y-4:o.y+5,"text-anchor":"middle","font-size":14.5,"font-weight":600},g);t1.textContent=l1;t1.style.stroke="none";
   if(l2){const t2=el("text",{x:o.x,y:o.y+14,"text-anchor":"middle","font-size":14.5,"font-weight":600},g);t2.textContent=l2.length>19?l2.slice(0,18)+"…":l2;t2.style.stroke="none";}});
- T("Bordo tratteggiato viola = proposta · bordo grigio = servizio di terzi · tocca un riquadro per i dettagli",700,428,{"font-size":13});
+ T("Dashed purple border = proposal · grey border = third-party service · tap a box for details",700,428,{"font-size":13});
  refreshSel();}
 xs.addEventListener("click",e=>{const t=e.target.closest("[data-id]");if(t)showEl(t.dataset.id);});
 xs.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.dataset.id){e.preventDefault();showEl(e.target.dataset.id);}});
 
-/* ---------- vista decisioni ---------- */
-function drawDec(){$("#decgrid").innerHTML=Object.entries(DEC).map(([k,d])=>`<div class="dec"><b>${k}</b><h4>${esc(d.t)}</h4><div class="row"><span>Dato</span><span>${esc(d.dato)}</span></div><div class="row"><span>Scelta</span><span>${esc(d.scelta)}</span></div><div class="row"><span>Perché</span><span>${esc(d.perche)}</span></div><div class="row"><span>Limite</span><span>${esc(d.limite)}</span></div><div class="actions">${d.els.filter(i=>E[i]).slice(0,4).map(i=>`<button data-go="${i}">${esc(i)}</button>`).join("")}</div></div>`).join("");
- $("#decgrid").querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{const o=E[b.dataset.go];if(o.kind==="hc"||o.kind==="rack")setView("centro");else if(o.kind==="ext")setView("esterno");else setView("isola");showEl(o.id);if(S.view==="isola"&&o.x!=null){const p=o.kind==="drone"?dronePos(o.idx):o;centerOn(p.x,p.y,Math.min(vb.w,800));}});}
+/* ---------- vista decisions ---------- */
+function drawDec(){$("#decgrid").innerHTML=Object.entries(DEC).map(([k,d])=>`<div class="dec"><b>${k}</b><h4>${esc(d.t)}</h4><div class="row"><span>Fact</span><span>${esc(d.dato)}</span></div><div class="row"><span>Choice</span><span>${esc(d.scelta)}</span></div><div class="row"><span>Why</span><span>${esc(d.perche)}</span></div><div class="row"><span>Limit</span><span>${esc(d.limite)}</span></div><div class="actions">${d.els.filter(i=>E[i]).slice(0,4).map(i=>`<button data-go="${i}">${esc(i)}</button>`).join("")}</div></div>`).join("");
+ $("#decgrid").querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{const o=E[b.dataset.go];if(o.kind==="hc"||o.kind==="rack")setView("hub");else if(o.kind==="ext")setView("remote");else setView("island");showEl(o.id);if(S.view==="island"&&o.x!=null){const p=o.kind==="drone"?dronePos(o.idx):o;centerOn(p.x,p.y,Math.min(vb.w,800));}});}
 
 /* ---------- viste ---------- */
-function setView(v){if(!["isola","centro","esterno","decisioni"].includes(v))v="isola";S.view=v;
+function setView(v){if(!["island","hub","remote","decisions"].includes(v))v="island";S.view=v;
  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===v));
- $("#v-isola").hidden=v!=="isola";$("#v-centro").hidden=v!=="centro";$("#v-esterno").hidden=v!=="esterno";$("#v-decisioni").hidden=v!=="decisioni";
- document.querySelectorAll(".isola-only").forEach(e=>e.style.display=v==="isola"?"":"none");
- $("#zoom").style.display=v==="isola"?"":"none";$("#status").style.display=v==="decisioni"?"none":"";
- $("#tools").style.display=v==="decisioni"?"none":"";if(v!=="isola"){$("#layers").hidden=true;toggleMeasure(false);}
- $("#coords").style.display=v==="isola"?"":"none";document.querySelector(".scalebar").style.visibility=v==="isola"?"":"hidden";
- $("#disclaimer").textContent=v==="centro"?"Schema del centro tecnico in scala indicativa · posizioni proposte":v==="esterno"?"Schema funzionale, non in scala · il satellite non è sull’isola":"Planimetria preliminare, non rilievo topografico · simboli ingranditi per leggibilità";
- if(location.hash.slice(1)!==v){try{history.replaceState(null,"","#"+v);}catch(e){}}if(v==="isola")requestAnimationFrame(setVB);}
+ $("#v-island").hidden=v!=="island";$("#v-hub").hidden=v!=="hub";$("#v-remote").hidden=v!=="remote";$("#v-decisions").hidden=v!=="decisions";
+ document.querySelectorAll(".island-only").forEach(e=>e.style.display=v==="island"?"":"none");
+ $("#zoom").style.display=v==="island"?"":"none";$("#status").style.display=v==="decisions"?"none":"";
+ $("#tools").style.display=v==="decisions"?"none":"";if(v!=="island"){$("#layers").hidden=true;toggleMeasure(false);}
+ $("#coords").style.display=v==="island"?"":"none";document.querySelector(".scalebar").style.visibility=v==="island"?"":"hidden";
+ $("#disclaimer").textContent=v==="hub"?"Technical hub layout at approximate scale · proposed positions":v==="remote"?"Functional diagram, not to scale · the satellite is not on the island":"Preliminary plan, not a topographic survey · symbols enlarged for legibility";
+ if(location.hash.slice(1)!==v){try{history.replaceState(null,"","#"+v);}catch(e){}}if(v==="island")requestAnimationFrame(setVB);}
 document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>setView(b.dataset.view));
 addEventListener("hashchange",()=>setView(location.hash.slice(1)));
-new ResizeObserver(()=>{if(S.view==="isola")setVB();}).observe($("#stage"));
+new ResizeObserver(()=>{if(S.view==="island")setVB();}).observe($("#stage"));
 
 document.querySelectorAll("[data-sc]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.sc===S.sc));
 drawLinks();drawHub();drawExt();drawDec();setPlay(S.playing);applyLayers();fit();showHome();
-setView(location.hash.slice(1)||"isola");
+setView(location.hash.slice(1)||"island");
 requestAnimationFrame(tick);
 })();
 </script>
