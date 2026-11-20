@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Drone Quest Island Map</title>
+<title>Drone Quest · Equipment map</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
@@ -13,7 +13,7 @@
   --bg:#e9f0f2; --panel:#ffffff; --ink:#14232b; --muted:#536872; --line:#d0dce1; --chip:#eef4f6;
   --ocean:#cfe5ef; --lagoon:#e4f2f8; --land:#efe5cf; --land-edge:#bfa978; --reef:#2b9fc2;
   --track:#d99a00; --accent:#0b6e8a; --accent-ink:#ffffff; --hub:#6b3fa0; --cam:#1f7a45;
-  --radio:#b4236b; --fibre:#1d5fd6; --sat:#0b6e8a; --infra:#8a979d; --sel:#e8513a;
+  --radio:#b4236b; --fibre:#1d5fd6; --sat:#0b6e8a; --infra:#8a979d; --sel:#e8513a; --on-c:#fff; --drone:#0e7fa3;
   --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
   --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
@@ -22,12 +22,12 @@
   --bg:#0b1317; --panel:#111c21; --ink:#e1eaed; --muted:#93a7b0; --line:#25363e; --chip:#18272e;
   --ocean:#0e2833; --lagoon:#133746; --land:#373022; --land-edge:#7a6844; --reef:#4cc3e3;
   --track:#f2c14b; --accent:#5ec3df; --accent-ink:#06171d; --hub:#c9a6f2; --cam:#6fd39a;
-  --radio:#f27fb6; --fibre:#86acff; --sat:#5ec3df; --infra:#8b989e; --sel:#ff8a6b; color-scheme:dark}}
+  --radio:#f27fb6; --fibre:#86acff; --sat:#5ec3df; --infra:#8b989e; --sel:#ff8a6b; --drone:#7fd3ec; --on-c:#06171d; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0b1317; --panel:#111c21; --ink:#e1eaed; --muted:#93a7b0; --line:#25363e; --chip:#18272e;
   --ocean:#0e2833; --lagoon:#133746; --land:#373022; --land-edge:#7a6844; --reef:#4cc3e3;
   --track:#f2c14b; --accent:#5ec3df; --accent-ink:#06171d; --hub:#c9a6f2; --cam:#6fd39a;
-  --radio:#f27fb6; --fibre:#86acff; --sat:#5ec3df; --infra:#8b989e; --sel:#ff8a6b; color-scheme:dark}
+  --radio:#f27fb6; --fibre:#86acff; --sat:#5ec3df; --infra:#8b989e; --sel:#ff8a6b; --drone:#7fd3ec; --on-c:#06171d; color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{height:100%}
@@ -40,6 +40,21 @@ header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 18px}
 .brand{display:grid;gap:2px;min-width:0;margin-right:auto}
 .eb{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 h1{margin:0;font-family:var(--f-display);font-stretch:82%;font-weight:800;font-size:1.6rem;line-height:1.05}
+.vsel{display:inline-flex;gap:4px;background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:4px}
+.vsel button{display:grid;gap:1px;text-align:left;border:1.5px solid transparent;background:transparent;border-radius:7px;padding:6px 16px;cursor:pointer;color:var(--muted);font:inherit}
+.vsel button b{font-family:var(--f-display);font-stretch:88%;font-size:1.1rem;font-weight:800;line-height:1.1}
+.vsel button span{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.02em}
+.vsel button:hover{color:var(--ink)}
+.vsel button[data-v="lc"][aria-pressed="true"]{background:var(--radio);color:var(--on-c)}
+.vsel button[data-v="pr"][aria-pressed="true"]{background:var(--fibre);color:var(--on-c)}
+.titlerow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.kv{display:grid;grid-template-columns:minmax(110px,max-content) 1fr;gap:5px 12px;font-size:.9rem;margin:0}
+.kv dt{color:var(--muted)} .kv dd{margin:0;font-variant-numeric:tabular-nums}
+table.cmp{width:100%;border-collapse:collapse;font-size:.86rem}
+table.cmp th,table.cmp td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+table.cmp th{font-family:var(--f-display);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+table.cmp td.on{background:var(--chip);font-weight:600}
 .switches{display:flex;flex-wrap:wrap;gap:8px}
 .seg{display:inline-flex;align-items:center;gap:2px;background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:3px}
 .seg span{font-size:.75rem;color:var(--muted);padding:0 6px 0 4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
@@ -83,6 +98,10 @@ main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 380px;
 .mk.sel .halo{stroke:var(--sel)!important;stroke-width:3.8}
 .mk:focus{outline:none}
 .lnk{cursor:pointer}
+.drone{cursor:pointer}.drone:focus{outline:none}
+.fly{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 11px;cursor:pointer;font-weight:600;font-size:.88rem;box-shadow:0 1px 3px #0002;color:var(--ink)}
+.fly[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.tele{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.tele div{border:1px solid var(--line);border-radius:7px;padding:6px 9px}.tele b{display:block;font-family:var(--f-mono);font-size:1.02rem;font-variant-numeric:tabular-nums}.tele span{font-size:.74rem;color:var(--muted)}
 .lnk.hl line.vis{filter:drop-shadow(0 0 3px var(--sel))}
 @media (max-width:900px){
   body{height:auto;min-height:100%}
@@ -95,26 +114,19 @@ main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 380px;
 <body>
 <header>
   <div class="brand">
-    <span class="eb">Group 4 · Drone Quest · Tromelin Island</span>
-    <h1>Equipment map</h1>
+    <span class="eb">SCMM · Group 4 · Tromelin Island · v0.5</span>
+    <div class="titlerow"><h1>DRONE QUEST · Equipment map</h1>
+      <div class="vsel" role="group" aria-label="Version">
+        <button data-v="lc" aria-pressed="true"><b>Low-Cost</b><span>1080p · 30 fps · Radio</span></button>
+        <button data-v="pr" aria-pressed="false"><b>Premium</b><span>1080p · 60 fps · Fibre</span></button>
+      </div></div>
   </div>
-  <div class="switches">
-    <div class="seg" role="group" aria-label="Camera connection">
-      <span>Link</span>
-      <button id="lk-radio" data-lk="radio" aria-pressed="true">Radio</button>
-      <button id="lk-fibre" data-lk="fibre" aria-pressed="false">Optical fibre</button>
-    </div>
-    <div class="seg" role="group" aria-label="Version">
-      <span>Version</span>
-      <button id="vr-lc" data-vr="lc" aria-pressed="true">Low-cost</button>
-      <button id="vr-pr" data-vr="pr" aria-pressed="false">Premium</button>
-    </div>
-  </div>
-</header>
+  </header>
 
 <main>
   <div class="stage" id="stage">
     <svg id="map" role="img" aria-label="Map of Tromelin Island with the race track, 8 cameras, the technical hub and their connections"></svg>
+    <button class="fly" id="fly" aria-pressed="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" id="flyic"><rect x="4" y="3" width="3" height="10"/><rect x="9" y="3" width="3" height="10"/></svg><span>Drones flying</span></button>
     <div class="zoom">
       <button id="z-in" aria-label="Zoom in">+</button>
       <button id="z-out" aria-label="Zoom out">−</button>
@@ -122,6 +134,7 @@ main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 380px;
     </div>
     <div class="status">
       <span class="scalebar"><i id="sb-bar" style="width:80px"></i><span id="sb-txt">200 m</span></span>
+      <span id="drate">Drone positions: every second</span>
       <span>Drawn to scale on the CIA map of the island · symbols enlarged so they are easy to read</span>
     </div>
   </div>
@@ -146,55 +159,83 @@ try{const a=localStorage.getItem("dq-lk"),b=localStorage.getItem("dq-vr");if(a==
 const C=GEO.circuit, CUM=GEO.cum, L=GEO.L, HUB=GEO.hub, AIR=GEO.air;
 const IDS=["C1-01","C1-02","C1-03","C1-04","C1-05","C1-06","C1-07","C1-08"];
 const CAMS=IDS.map((id,i)=>({n:i+1,...GEO.cams[id]}));
+const CPS=[0,209,614,1372,1670,1959,2387,2996];
 const WHERE=["the start and finish line","the first bend after the start","the long straight on the south-west side","the hairpin at the south end","the south-east side","the east corner","the return straight on the north-east side","the last bend before the finish"];
 function at(s){s=((s%L)+L)%L;let i=0;while(i<CUM.length-1&&CUM[i+1]<=s)i++;const a=C[i],b=C[(i+1)%C.length],sl=(i+1<CUM.length?CUM[i+1]:L)-CUM[i],t=sl?(s-CUM[i])/sl:0;return{x:a[0]+(b[0]-a[0])*t,y:a[1]+(b[1]-a[1])*t,hd:Math.atan2(b[1]-a[1],b[0]-a[0])};}
-const radio=()=>S.lk==="radio", pr=()=>S.vr==="pr";
+const pr=()=>S.vr==="pr", radio=()=>!pr();
 const total=CAMS.reduce((s,c)=>s+c.dHub,0);
 
 /* ---------- texts ---------- */
+const CPN=c=>{const l=[...CAMS].sort((a,b)=>a.lap%3227-b.lap%3227);return "CP"+(l.indexOf(c)+1);};
+const kv=r=>`<dl class="kv">${r.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>`;
+const on=b=>b?' class="on"':'';
 const T={
  overview(){return {
-  title:"The solution in brief",
-  body:`<p>Eight cameras film the race along the track. ${radio()
-   ?"Each one sends its video <b>by radio</b>, from a small transmitter on a 4–6 m pole, to a mast in the technical hub."
-   :"Each one sends its video through an <b>optical fibre cable</b> laid on the ground, all the way to the technical hub."}
-   In the hub the control room mixes the cameras and the drones’ views into one live show, and <b>one satellite link</b> sends it off the island to the audience.</p>`};},
+  title:"How the system works",
+  body:`<p>${pr()?"<b>Premium</b>: the 8 cameras send their video through <b>armoured optical fibre</b>":"<b>Low-Cost</b>: the 8 cameras send their video <b>by radio</b> (5 GHz)"} to the <b>technical hub</b>. There the control room mixes cameras, the pilots’ goggle views and the commentary into <b>one programme</b>, which leaves the island by <b>VSAT satellite</b>, together with the drone and heart-rate data for the graphics.</p>
+  <div><h3>Low-Cost vs Premium</h3><table class="cmp"><tr><th></th><th>Low-Cost</th><th>Premium</th></tr>
+   <tr><td>Video</td><td${on(!pr())}>1080p · 30 fps</td><td${on(pr())}>1080p · 60 fps</td></tr>
+   <tr><td>Cameras → hub</td><td${on(!pr())}>Radio, 5 GHz</td><td${on(pr())}>Optical fibre</td></tr>
+   <tr><td>Graphics</td><td${on(!pr())}>2D</td><td${on(pr())}>AR/3D, 2D fallback</td></tr>
+   <tr><td>Position, speed, height</td><td${on(!pr())}>1 per second</td><td${on(pr())}>5 per second</td></tr>
+   <tr><td>Battery, heart rate</td><td${on(!pr())}>1 per second</td><td${on(pr())}>1 per second</td></tr>
+   <tr><td>Satellite upload (VSAT)</td><td${on(!pr())}>10 Mbps</td><td${on(pr())}>15 Mbps</td></tr></table></div>`};},
  cam(c){return {
-  title:"Camera "+c.n, tag:"Ground camera",
-  body:`<p>Fixed camera that films ${WHERE[c.n-1]}. It is ${fmt(c.dHub)} m from the technical hub.</p>
-   <p>${radio()?"It sends its video by radio from a pole 4–6 m high, so the signal passes above the bushes and the people.":"It sends its video through an optical fibre cable, about "+fmt(c.dHub*1.15)+" m long including bends."}
-   It runs on a battery charged by a small solar panel.</p>`,
-  ver: pr()?"Full HD, 60 frames per second. Professional camera.":"Full HD, 30 frames per second. Standard camera."};},
- link(c){return {
-  title:"Link: camera "+c.n+" → hub", tag:radio()?"Radio link":"Optical fibre",
-  body: radio()
-   ?`<p>The video travels through the air, from the transmitter on the camera’s pole to the mast in the technical hub: ${fmt(c.dHub)} m.</p><p>It works well here because the island is flat and the distances are short. Each camera uses its own channel, so the signals don’t disturb each other.</p>`
-   :`<p>The video travels as light inside a glass-fibre cable, from the camera to the technical hub: about ${fmt(c.dHub*1.15)} m of cable.</p><p>The signal is very stable and doesn’t suffer from obstacles or interference, but the cable has to be laid along the ground and protected.</p>`,
-  ver: radio()
-   ?(pr()?"Professional TV radio transmitters, plus a backup receiver in the hub.":"Standard outdoor radio transmitters.")
-   :(pr()?"Armoured field cable, plus a spare cable for each camera.":"One standard field cable for each camera.")};},
+  title:"Camera C1-0"+c.n, tag:"Ground camera · "+CPN(c),
+  body:`<p>Films ${WHERE[c.n-1]}. All 8 cameras transmit at the same time.</p>`+kv([
+   ["Video",pr()?"Full HD 1080p · 60 fps":"Full HD 1080p · 30 fps"],
+   ["Stream (estimate)",pr()?"~9.95 Mbps":"~4.98 Mbps"],
+   ["Sends to the hub",pr()?"optical fibre, ~"+fmt(c.dHub*1.15)+" m of cable":"radio, "+fmt(c.dHub)+" m in a straight line"],
+   ["Arrives at","the video mixer in the control room"],
+   ["Distance to hub",fmt(c.dHub)+" m"],
+   ["Following the drones",pr()?"broadcast camera with zoom":"automatic tracking"]])};},
+ link(c){return !pr()?{
+  title:"Radio link C1-0"+c.n+" → hub", tag:"Low-Cost · radio",
+  body:kv([
+   ["Distance",fmt(c.dHub)+" m (straight line)"],
+   ["Band","5 GHz, one channel per camera"],
+   ["Kept apart from","the drones’ radio controllers (2.4 GHz)"],
+   ["Receiver","one per camera in the hub, then HDMI to the mixer"],
+   ["Needs","a clear line of sight between camera and hub"],
+   ["Advantage","quick to set up, no cables on the ground"]])+`<p class="note">To check: the range of the chosen radio kit must cover ${fmt(c.dHub)} m.</p>`}
+  :{title:"Fibre cable C1-0"+c.n+" → hub", tag:"Premium · optical fibre",
+  body:kv([
+   ["Cable length","~"+fmt(c.dHub*1.15)+" m ("+fmt(c.dHub)+" m + 15% for bends)"],
+   ["Cable","armoured single-mode fibre, laid on the ground"],
+   ["Converters","video → light at the camera, light → video in the hub"],
+   ["Arrives at","the video mixer in the control room (SDI)"],
+   ["Interference","none: the signal is light, not radio"],
+   ["Advantage","maximum stability, no dropouts"]])+`<p class="note">8 cables in total ≈ 5.1 km, protected where people cross them.</p>`};},
  hub(){return {
   title:"Technical hub", tag:"Centre of the island",
-  body:`<p>The one place where everything comes together, in the middle of the island so that every camera is less than 750 m away.</p>
-   <ul style="margin:0;padding-left:1.1rem;display:grid;gap:4px">
-    <li>${radio()?"A mast with the radio receivers for the 8 cameras":"The connection box where the 8 fibre cables arrive"}</li>
-    <li>Control room: the mixer picks which shot goes live</li>
-    <li>Commentary room</li>
-    <li>Pilot area: 8 stations, one for each drone in the air, with remote control, goggles and heart-rate wristband</li>
-    <li>Network cables connect everything inside the hub</li>
-   </ul>`,
-  ver: pr()?"Live show in Full HD at 60 frames per second, with 3D graphics over the video. Drone positions updated 5 times per second.":"Live show in Full HD at 30 frames per second, with a simple 2D map. Drone positions updated once per second."};},
+  body:`<p>All 8 cameras are less than 750 m away.</p>`+kv([
+   ["Cameras",pr()?"8 fibre cables arrive here":"8 radio receivers"],
+   ["Control room","video mixer: 8 cameras + pilots’ goggles → one programme"],
+   ["Commentary","2 microphones, mixed into one audio track"],
+   ["Pilot area","24 pilots, 8 flying per round, goggles → mixer"],
+   ["Race data","2 Black Boxes: drone telemetry + heart rate (5 BLE hubs)"],
+   ["Recording","the final programme for 4 hours + separate data logs"]])};},
  sat(){return {
-  title:"Satellite link", tag:"Exit from the island",
-  body:`<p>There is no internet cable on the island, so the live show leaves by satellite. A Starlink antenna next to the hub sends it to the internet, and from there it reaches TV, computers and smartphones.</p>
-   <p>If Starlink stops, an Iridium antenna sends only light data, like the drones’ positions and the pilots’ heart rate, so the audience can still follow the race on the map.</p>`,
-  ver: pr()?"Two Starlink antennas (one is a backup) + Iridium for data.":"One Starlink antenna + Iridium for data."};},
+  title:"VSAT satellite link", tag:"Only link off the island",
+  body:kv([
+   ["Service","Speedcast Ku-band VSAT, guaranteed upload"],
+   ["Upload",pr()?"15 Mbps":"10 Mbps"],
+   ["Carries","1 programme with mixed audio + drone data + heart rate + emergency comms"],
+   ["Programme",pr()?"~10.16 Mbps":"~5.11 Mbps"],
+   ["Duration","4 hours live"],
+   ["Why not Starlink","not available on Tromelin"]])+`<p class="note">On the mainland the video and the data meet again to build the ${pr()?"AR/3D (or 2D)":"2D"} graphics for PC, TV and smartphone.</p>`};},
  track(){return {
   title:"Race track", tag:"Drone race",
-  body:`<p>A loop of about ${(L/1000).toFixed(1)} km around the island. 24 pilots take part; 8 drones fly at the same time in each round.</p><p>The drones start in the north-west and fly anticlockwise on the map, following the arrows.</p>`};},
- air(){return {
-  title:"Existing airstrip", tag:"Already on the island",
-  body:"<p>The island’s airstrip, used to bring people and equipment. It is not part of the race; the technical hub stays about 130 m away from it.</p>"};}
+  body:kv([["Lap","~"+(L/1000).toFixed(1)+" km, CP0 start/finish + CP1–CP7"],["Pilots","24, 8 drones in the air per round"],["Rounds","6 × 10 minutes"],["Event","1 day, 4 hours of live coverage"]])};},
+ cp(k){const s=CPS[k];return {
+  title:k?"Checkpoint CP"+k:"CP0 · Start and finish", tag:"Race track",
+  body:kv([["Position on the lap",fmt(s)+" m from the start"],["Detected by","the drone’s GPS position"],["Used for","lap times, positions and ranking"],["Updated",pr()?"5 times per second":"once per second"]])};},
+ wx(){return {title:"Existing weather station", tag:"Already on the island",
+  body:kv([["Distance to hub","~"+fmt(Math.hypot(427-HUB[0],547-HUB[1]))+" m"],["Data","wind, temperature, humidity, rain"],["Why it matters","wind decides whether the drones can fly"],["In the project","not part of the system, shown for reference"]])};},
+ dr(n){return {title:"Drone DR-0"+n, tag:"In flight · simulated data",
+  body:`<p>Each pilot brings their own drone, goggles and remote control. Same reference setup for all: GPS drone with Walksnail Avatar video and ELRS remote.</p><div><h3>Live data</h3><div class="tele" id="tele"></div></div>`+kv([
+   ["Telemetry","flight controller (MAVLink) → Black Box → control room"],["Position, speed, height",pr()?"5 times per second":"once per second"],["Battery, heart rate","once per second"],["FPV video","drone → pilot’s goggles → HDMI to the mixer"]])};},
+ air(){return {title:"Existing airstrip", tag:"Already on the island",body:kv([["Length","~1.2 km"],["Use","brings people and equipment"],["Distance to hub","~130 m"]])};}
 };
 
 /* ---------- inspector ---------- */
@@ -211,6 +252,9 @@ function show(id){
  else if(id==="sat")card(T.sat(),"var(--sat)");
  else if(id==="track")card(T.track(),"var(--track)");
  else if(id==="air")card(T.air(),"var(--infra)");
+ else if(id==="wx")card(T.wx(),"var(--infra)");
+ else if(id.startsWith("cp"))card(T.cp(+id.slice(2)),"var(--track)");
+ else if(id.startsWith("dr")){card(T.dr(+id.slice(2)),"var(--drone)");updTele();}
 }
 function overview(){
  const o=T.overview();const lc=radio()?"var(--radio)":"var(--fibre)";
@@ -227,11 +271,14 @@ function overview(){
    <div><svg viewBox="0 0 44 18"><circle cx="22" cy="9" r="7" fill="var(--panel)" stroke="var(--cam)" stroke-width="2.4"/></svg><span>Ground camera</span></div>
    <div><svg viewBox="0 0 44 18">${radio()?'<path d="M2 9h40" stroke="var(--radio)" stroke-width="2" stroke-dasharray="6 4"/>':'<path d="M2 9h40" stroke="var(--fibre)" stroke-width="3"/>'}</svg><span>${radio()?"Radio link to the hub":"Optical fibre cable to the hub"}</span></div>
    <div><svg viewBox="0 0 44 18"><rect x="14" y="1" width="16" height="16" rx="4" fill="var(--panel)" stroke="var(--hub)" stroke-width="2.4"/></svg><span>Technical hub</span></div>
-   <div><svg viewBox="0 0 44 18"><path d="M2 9h40" stroke="var(--sat)" stroke-width="2" stroke-dasharray="1.5 4"/></svg><span>Satellite link (not to scale)</span></div>
+   <div><svg viewBox="0 0 44 18"><path d="M2 9h40" stroke="var(--sat)" stroke-width="2" stroke-dasharray="1.5 4"/></svg><span>VSAT satellite link (not to scale)</span></div>
+   <div><svg viewBox="0 0 44 18"><rect x="16" y="3" width="12" height="12" transform="rotate(45 22 9)" fill="var(--panel)" stroke="var(--track)" stroke-width="2"/></svg><span>Checkpoint (CP0 = start / finish)</span></div>
+   <div><svg viewBox="0 0 44 18"><circle cx="22" cy="9" r="8" fill="var(--panel)" stroke="var(--drone)" stroke-width="2"/><path d="M18 5l8 8M26 5l-8 8" stroke="var(--drone)" stroke-width="1.6"/></svg><span>Drone in flight (8 per round)</span></div>
+   <div><svg viewBox="0 0 44 18"><rect x="15" y="2" width="14" height="14" rx="2" fill="var(--panel)" stroke="var(--infra)" stroke-width="2"/></svg><span>Existing infrastructure</span></div>
   </div></div>
   <div><h3>On the map</h3><div class="list">
    <button class="row" data-go="hub"><span class="dot" style="border-color:var(--hub);border-radius:5px"></span><span>Technical hub</span><span class="d"></span></button>
-   <button class="row" data-go="sat"><span class="dot" style="border-color:var(--sat)"></span><span>Satellite link</span><span class="d"></span></button>
+   <button class="row" data-go="sat"><span class="dot" style="border-color:var(--sat)"></span><span>VSAT satellite link</span><span class="d"></span></button>
    <button class="row" data-go="track"><span class="dot" style="border-color:var(--track)"></span><span>Race track</span><span class="d">${(L/1000).toFixed(1)} km</span></button>
    ${CAMS.map(c=>`<button class="row" data-go="cam${c.n}"><span class="dot">${c.n}</span><span>Camera ${c.n}</span><span class="d">${fmt(c.dHub)} m</span></button>`).join("")}
   </div></div>
@@ -281,7 +328,7 @@ function drawLinks(){gLinks.innerHTML="";
  const g=el("g",{class:"lnk","data-id":"sat"},gLinks);
  el("line",{class:"vis",x1:HUB[0],y1:HUB[1],x2:1530,y2:250,stroke:"var(--sat)","data-sw":2,"data-dash":"1.5 5","stroke-linecap":"round"},g);
  el("line",{x1:HUB[0],y1:HUB[1],x2:1530,y2:250,stroke:"transparent","data-sw":16},g);
- lbl("→ satellite (not to scale)",1525,232,g,"var(--sat)","end",12.5);
+ lbl("→ VSAT satellite (not to scale)",1525,232,g,"var(--sat)","end",12.5);
  applyScale();refreshSel();}
 
 /* markers */
@@ -296,7 +343,26 @@ function marker(id,x,y,kind,label){const g=el("g",{class:"mk","data-id":id,tabin
 CAMS.forEach(c=>marker("cam"+c.n,c.x,c.y,"cam","Camera "+c.n));
 marker("hub",HUB[0],HUB[1],"hub","Technical hub");
 const satPos=[HUB[0]+70,HUB[1]+55];
-marker("sat",satPos[0],satPos[1],"sat","Satellite antenna");
+/* existing weather station */
+(()=>{const g=el("g",{class:"mk","data-id":"wx",tabindex:0,role:"button","aria-label":"Existing weather station"},gMk);
+ el("rect",{x:-10,y:-10,width:20,height:20,rx:3,class:"halo",stroke:"var(--infra)"},g);el("path",{d:"M-4 5V-5M-4 -5h8l-3 3 3 3h-8",fill:"none",stroke:"var(--infra)","stroke-width":1.8,"stroke-linejoin":"round"},g);
+ const t=el("text",{x:-14,y:-12,"text-anchor":"end","font-family":"Source Sans 3, sans-serif","font-weight":600,"font-size":12,fill:"var(--muted)","paint-order":"stroke",stroke:"var(--panel)","stroke-width":3.5},g);t.textContent="Weather station";
+ mks.push({e:g,x:427,y:547});})();
+/* checkpoints */
+CPS.forEach((s,k)=>{const p=at(s);const g=el("g",{class:"mk","data-id":"cp"+k,tabindex:0,role:"button","aria-label":"Checkpoint CP"+k},gTrack);
+ el("rect",{x:-6.5,y:-6.5,width:13,height:13,transform:"rotate(45)",class:"halo",stroke:"var(--track)"},g);
+ const t=el("text",{x:-12,y:-10,"text-anchor":"end","font-family":"JetBrains Mono, monospace","font-weight":600,"font-size":11,fill:"var(--ink)","paint-order":"stroke",stroke:"var(--panel)","stroke-width":3},g);t.textContent="CP"+k;
+ mks.push({e:g,x:p.x,y:p.y});});
+/* drones */
+const gDr=el("g",{},svg);
+const DRN=Array.from({length:8},(_,i)=>{const g=el("g",{class:"mk drone","data-id":"dr"+(i+1),tabindex:0,role:"button","aria-label":"Drone DR-0"+(i+1)},gDr);
+ el("circle",{r:11,class:"halo",stroke:"var(--drone)"},g);
+ el("path",{d:"M-4.5 -4.5 4.5 4.5M4.5 -4.5 -4.5 4.5",stroke:"var(--drone)","stroke-width":1.8},g);
+ [[-5,-5],[5,-5],[-5,5],[5,5]].forEach(([x,y])=>el("circle",{cx:x,cy:y,r:2.6,fill:"none",stroke:"var(--drone)","stroke-width":1.4},g));
+ const t=el("text",{x:15,y:4,"font-family":"JetBrains Mono, monospace","font-weight":600,"font-size":11,fill:"var(--ink)","paint-order":"stroke",stroke:"var(--panel)","stroke-width":3},g);t.textContent="DR-0"+(i+1);
+ const d={g,i,v:[32.1,33.4,31.2,32.8,30.9,33.0,31.7,32.4][i],d:-i*380,spd:0,alt:6,bat:100,bpm:100,ph:i*1.9,pub:{d:-i*380,prev:-i*55,t:0,spd:0,alt:6},bio:{bat:100,bpm:100}};
+ mks.push({e:g,x:0,y:0,dr:d});return d;});
+marker("sat",satPos[0],satPos[1],"sat","VSAT antenna");
 
 /* viewport */
 function mpp(){const r=svg.getBoundingClientRect();if(!r.width)return 1;return Math.max(vb.w/r.width,vb.h/r.height);}
@@ -304,7 +370,7 @@ function applyScale(){const m=mpp();
  svg.querySelectorAll("[data-sw]").forEach(e=>e.setAttribute("stroke-width",e.dataset.sw*m));
  svg.querySelectorAll("[data-dash]").forEach(e=>e.setAttribute("stroke-dasharray",e.dataset.dash.split(" ").map(v=>v*m).join(" ")));
  svg.querySelectorAll("[data-fs]").forEach(e=>{e.setAttribute("font-size",e.dataset.fs*m);e.setAttribute("stroke-width",3.5*m);});
- mks.forEach(k=>k.e.setAttribute("transform",`translate(${k.x} ${k.y}) scale(${m})`));
+ mks.forEach(k=>{if(!k.dr)k.e.setAttribute("transform",`translate(${k.x} ${k.y}) scale(${m})`);});
  scaled.forEach(k=>k.e.setAttribute("transform",`translate(${k.x} ${k.y}) rotate(${k.r}) scale(${m})`));
  const nice=[25,50,100,200,250,500,1000];let len=nice[0];for(const n of nice){if(n/m<=150)len=n;}
  $("#sb-bar").style.width=(len/m)+"px";$("#sb-txt").textContent=len+" m";}
@@ -340,13 +406,37 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")select(null);});
 
 /* switches */
 function setLk(v){S.lk=v;try{localStorage.setItem("dq-lk",v);}catch(e){}document.querySelectorAll("[data-lk]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lk===v));drawLinks();show(S.sel);}
-function setVr(v){S.vr=v;try{localStorage.setItem("dq-vr",v);}catch(e){}document.querySelectorAll("[data-vr]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.vr===v));show(S.sel);}
-document.querySelectorAll("[data-lk]").forEach(b=>b.onclick=()=>setLk(b.dataset.lk));
+const VB=[...document.querySelectorAll("[data-v]")];const paintV=()=>VB.forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===S.vr));VB.forEach(b=>b.onclick=()=>{setVr(b.dataset.v);paintV();});paintV();
+function setVr(v){S.vr=v;drawLinks();acc=1e9;document.getElementById("drate").textContent=pr()?"Drone positions: 5 times per second":"Drone positions: every second";try{localStorage.setItem("dq-vr",v);}catch(e){}document.querySelectorAll("[data-vr]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.vr===v));show(S.sel);}
+
 document.querySelectorAll("[data-vr]").forEach(b=>b.onclick=()=>setVr(b.dataset.vr));
 
 document.querySelectorAll("[data-lk]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lk===S.lk));
 document.querySelectorAll("[data-vr]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.vr===S.vr));
+/* drone simulation: positions published 1 per second (Low-Cost) or 5 per second (Premium), battery + heart 1 per second */
+let simT=180,flying=true,acc=0,accB=0,last=performance.now();
+const bendAt=s=>{const a=at(s-30).hd,b=at(s+30).hd;let d=b-a;while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;return Math.min(1,Math.abs(d)/1.6);};
+function sim(dt){simT+=dt;DRN.forEach(d=>{const b=bendAt(d.d);const tgt=d.v*(1-.4*b)*(1+.03*Math.sin(simT*.4+d.ph));d.spd+=(tgt-d.spd)*Math.min(1,dt*2.5);d.d+=d.spd*dt;
+ d.alt=5.5+2.2*Math.sin(simT*.6+d.ph)+1.5*(1-b);d.bat=Math.max(20,100-simT/600*72-(d.i%3)*1.5);d.bpm=104+30*b+8*Math.sin(simT*.2+d.ph)+(d.i%4)*3;});}
+for(let k=0;k<1800;k++)sim(.1);
+const hz=()=>pr()?5:1;
+function pubPos(now){DRN.forEach(d=>{d.pub.prev=d.pub.d;d.pub.d=d.d;d.pub.spd=d.spd;d.pub.alt=d.alt;d.pub.t=now;});}
+function pubBio(){DRN.forEach(d=>{d.bio.bat=d.bat;d.bio.bpm=d.bpm;});}
+pubPos(last);pubBio();
+function placeDrones(now){const m=mpp();DRN.forEach(d=>{let s=d.pub.d;if(pr()&&flying){const f=Math.min(1,(now-d.pub.t)/(1000/hz()));s=d.pub.prev+(d.pub.d-d.pub.prev)*f;}
+ const p=at(Math.max(0,s));const k=mks.find(k=>k.dr===d);k.x=p.x;k.y=p.y;d.g.setAttribute("transform",`translate(${p.x} ${p.y}) scale(${m})`);});}
+function rank(d){return DRN.filter(o=>o.pub.d>d.pub.d).length+1;}
+window.updTele=function(){const t=document.getElementById("tele");if(!t||!S.sel||!S.sel.startsWith("dr"))return;const d=DRN[+S.sel.slice(2)-1];
+ const lap=Math.min(6,Math.max(1,Math.floor(d.pub.d/L)+1));
+ t.innerHTML=`<div><b>P${rank(d)} / 8</b><span>position · lap ${lap}/6</span></div><div><b>${Math.round(d.pub.spd*3.6)} km/h</b><span>speed · ${hz()}×/s</span></div><div><b>${Math.round(d.pub.alt)} m</b><span>height · ${hz()}×/s</span></div><div><b>${Math.round(d.bio.bat)}%</b><span>battery · 1×/s</span></div><div><b>♥ ${Math.round(d.bio.bpm)} bpm</b><span>pilot heart rate · 1×/s</span></div><div><b>${fmt(((d.pub.d%L)+L)%L)} m</b><span>along the lap</span></div>`;};
+function tick(now){const dt=Math.min(.1,(now-last)/1000);last=now;
+ if(flying){sim(dt);acc+=dt;accB+=dt;let ch=false;if(acc>=1/hz()){acc%=1/hz();pubPos(now);ch=true;}if(accB>=1){accB%=1;pubBio();ch=true;}if(ch)updTele();}
+ placeDrones(now);requestAnimationFrame(tick);}
+requestAnimationFrame(tick);
+document.getElementById("fly").onclick=function(){flying=!flying;this.setAttribute("aria-pressed",flying);this.querySelector("span").textContent=flying?"Drones flying":"Drones paused";
+ document.getElementById("flyic").innerHTML=flying?'<rect x="4" y="3" width="3" height="10"/><rect x="9" y="3" width="3" height="10"/>':'<path d="M4 3l9 5-9 5z"/>';};
 drawLinks();fit();overview();
+document.getElementById("drate").textContent=pr()?"Drone positions: 5 times per second":"Drone positions: every second";
 })();
 </script>
 </body>
