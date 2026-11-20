@@ -6,19 +6,18 @@ Project for the **Sistemas de Comunicação Multimédia** course (University of 
 
 Open the GitHub Pages link, or open `index.html` in a browser (it also works offline).
 
-- **Island**: race track, checkpoints CP0–CP7, cameras C1-01…C1-08, radio links with distances, technical hub, simulated drones.
-- **Technical hub**: control room, commentators, pilots area, radio and weather mast, Starlink, Iridium, generator.
-- **Off the island**: satellite, cloud, distribution to the audience.
-- **Decisions**: every choice with its fact, reason and limit.
+A simple equipment map of the island: race track, 8 ground cameras, technical hub, camera links and satellite link. Tap any point or line to read what it is.
 
-The button at the top switches scenario: **low-cost** (IP radio) and **premium** (Vislink video transmitters).
+Two switches at the top:
+- **Link**: radio or optical fibre between the cameras and the technical hub.
+- **Version**: low-cost or premium.
 
 ## Files
 
 | File | Content |
 | --- | --- |
-| `index.html` | Interactive map |
-| `file/tromelin-radio-map-print.pdf` | Printable version, A3, one page per scenario |
+| `index.html` | Interactive map (simple version, radio and fibre) |
+| `file/tromelin-radio-map-print.pdf` (previous, radio only) | Printable version, A3, one page per scenario |
 | `file/tromelin-radio-map-lowcost.svg` | Editable vector map, low-cost |
 | `file/tromelin-radio-map-premium.svg` | Editable vector map, premium |
 
