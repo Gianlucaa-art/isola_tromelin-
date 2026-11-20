@@ -423,7 +423,7 @@ const hz=()=>pr()?5:1;
 function pubPos(now){DRN.forEach(d=>{d.pub.prev=d.pub.d;d.pub.d=d.d;d.pub.spd=d.spd;d.pub.alt=d.alt;d.pub.t=now;});}
 function pubBio(){DRN.forEach(d=>{d.bio.bat=d.bat;d.bio.bpm=d.bpm;});}
 pubPos(last);pubBio();
-function placeDrones(now){const m=mpp();DRN.forEach(d=>{let s=d.pub.d;if(pr()&&flying){const f=Math.min(1,(now-d.pub.t)/(1000/hz()));s=d.pub.prev+(d.pub.d-d.pub.prev)*f;}
+function placeDrones(now){const m=mpp();DRN.forEach(d=>{let s=d.pub.d;if(flying){const f=Math.min(1,(now-d.pub.t)/(1000/hz()));s=d.pub.prev+(d.pub.d-d.pub.prev)*f;}
  const p=at(Math.max(0,s));const k=mks.find(k=>k.dr===d);k.x=p.x;k.y=p.y;d.g.setAttribute("transform",`translate(${p.x} ${p.y}) scale(${m})`);});}
 function rank(d){return DRN.filter(o=>o.pub.d>d.pub.d).length+1;}
 window.updTele=function(){const t=document.getElementById("tele");if(!t||!S.sel||!S.sel.startsWith("dr"))return;const d=DRN[+S.sel.slice(2)-1];
